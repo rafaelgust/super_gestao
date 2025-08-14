@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -14,11 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [SiteController::class, 'index'])->name('site.index');
+Route::get('/sobre-nos', [SiteController::class, 'sobreNos'])->name('site.sobre-nos');
+Route::get('/contato', [SiteController::class, 'contato'])->name('site.contato');
 
 Auth::routes(['verify' => true]);
+
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])
 ->middleware('verified')
