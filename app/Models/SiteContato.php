@@ -8,4 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class SiteContato extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'nome',
+        'email',
+        'telefone',
+        'mensagem',
+        'motivo_id',
+    ];
+
+    public function motivo()
+    {
+        return $this->belongsTo(ContatoMotivo::class, 'motivo_id');
+    }
 }
