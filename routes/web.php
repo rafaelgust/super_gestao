@@ -32,6 +32,5 @@ Route::middleware(['verified'])->group(function () {
                 [HomeController::class, 'index'])
                         ->name('home');
 
-        Route::resource('fornecedor', FornecedorController::class)->except('index');
-        Route::get('/fornecedor', [FornecedorController::class, 'index'])->name('fornecedor.index');
+        Route::resource('fornecedor', FornecedorController::class);
 });
