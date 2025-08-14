@@ -3,9 +3,6 @@
     <head>
         <title>Super Gestão - @yield('titulo')</title>
         <meta charset="utf-8">
-            <!-- Fonts -->
-        <link rel="dns-prefetch" href="//fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 
         <!-- Scripts -->
         @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -15,7 +12,9 @@
     
     <body>
         @include('site.layouts._partials.topo')
-        @yield('conteudo')
+        <main class="pt-5" style="margin-top: 40px;background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); min-height: 100vh; padding: 60px 0;">
+            @yield('conteudo')
+        </main>
         @include('site.layouts._partials.rodape')
     </body>
 </html>
