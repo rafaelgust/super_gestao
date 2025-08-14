@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -18,6 +19,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [SiteController::class, 'index'])->name('site.index');
 Route::get('/sobre-nos', [SiteController::class, 'sobreNos'])->name('site.sobre-nos');
 Route::get('/contato', [SiteController::class, 'contato'])->name('site.contato');
+
+Route::post('/contato', [ContatoController::class, 'store'])
+        ->name('site.contato.store');
 
 Auth::routes(['verify' => true]);
 

@@ -10,7 +10,8 @@
                 <div class="card-body">
                     <h2 class="card-title mb-3">Entre em Contato</h2>
                     <p class="card-text">Preencha o formulário abaixo e nossa equipe retornará o mais breve possível.</p>
-                    
+                    @component('site.layouts._components.form_contato', ['motivo_contatos' => $motivo_contatos])
+                    @endcomponent
                 </div>
             </div>
         </div>

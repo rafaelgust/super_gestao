@@ -2,37 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Models\ContatoMotivo;
 
 class SiteController extends Controller
 {
-    /**
-     * Display the main page of the site.
-     *
-     * @return \Illuminate\View\View
-     */
+
     public function index()
     {
-        return view('site.index');
+        $motivo_contatos = ContatoMotivo::all();
+        return view('site.index', compact('motivo_contatos'));
     }
 
-    /**
-     * Display the "Sobre Nós" page.
-     *
-     * @return \Illuminate\View\View
-     */
     public function sobreNos()
     {
         return view('site.sobre-nos');
     }
 
-    /**
-     * Display the "Contato" page.
-     *
-     * @return \Illuminate\View\View
-     */
     public function contato()
     {
-        return view('site.contato');
+        $motivo_contatos = ContatoMotivo::all();
+        return view('site.contato', compact('motivo_contatos'));
     }
 }

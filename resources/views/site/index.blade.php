@@ -41,7 +41,8 @@
                 <div class="card-body">
                     <h2 class="card-title mb-3">Contato</h2>
                     <p class="card-text">Ficou com alguma dúvida? Entre em contato com nossa equipe pelo formulário abaixo.</p>
-                    <!-- Formulário de contato pode ser adicionado aqui -->
+                    @component('site.layouts._components.form_contato', ['motivo_contatos' => $motivo_contatos])
+                    @endcomponent
                 </div>
             </div>
         </div>
