@@ -53,7 +53,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="comprasDropdown">
                             <li>
-                                <a class="dropdown-item" href="#">Fornecedores</a>
+                                <a class="dropdown-item" href="{{ route('fornecedor.index') }}">Fornecedores</a>
                             </li>
                             <li>
                                 <a class="dropdown-item" href="#">Pedidos</a>

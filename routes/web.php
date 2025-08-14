@@ -6,7 +6,6 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-use Termwind\Components\Hr;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +32,6 @@ Route::middleware(['verified'])->group(function () {
                 [HomeController::class, 'index'])
                         ->name('home');
 
-        Route::resource('fornecedor', FornecedorController::class);
+        Route::resource('fornecedor', FornecedorController::class)->except('index');
+        Route::get('/fornecedor', [FornecedorController::class, 'index'])->name('fornecedor.index');
 });
-
