@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\FornecedorController;
 use App\Http\Controllers\HomeController;
@@ -33,4 +34,5 @@ Route::middleware(['verified'])->group(function () {
                         ->name('home');
 
         Route::resource('fornecedor', FornecedorController::class);
+        Route::resource('cliente', ClienteController::class);
 });

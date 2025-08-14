@@ -40,7 +40,7 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="vendasDropdown">
                             <li>
-                                <a class="dropdown-item" href="#">Clientes</a>
+                                <a class="dropdown-item" href="{{ route('cliente.index') }}">Clientes</a>
                             </li>
                             <li>
                                 <a class="dropdown-item" href="#">Pedidos</a>
