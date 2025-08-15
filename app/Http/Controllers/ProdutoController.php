@@ -134,7 +134,7 @@ class ProdutoController extends Controller
         $regras = [
             'nome' => 'required|string|max:100|unique:produtos,nome,' . $id,
             'descricao' => 'required|string|max:65535',
-            'imagem' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            'imagem' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
         ];
 
         $feedback = [
@@ -145,11 +145,29 @@ class ProdutoController extends Controller
 
         $request->validate($regras, $feedback);
 
-        $produto = Produto::find($id);
+         $produto = Produto::find($id);
 
         if (!$produto) {
             return redirect()->route('produto.index')
                 ->with('error', 'Produto não encontrado!');
+        }
+
+
+        // validar se no request tem o produto->detalhes
+        // se tiver acessar o ProdutoDetalheController e dar create ou update
+        $detalhes = $request->filled('peso') ||
+            $request->filled('altura') ||
+            $request->filled('largura') ||
+            $request->filled('comprimento');
+        if ($detalhes) {
+            try {
+                //create ou update
+                $detalhesData = $request->only(['peso', 'altura', 'largura', 'comprimento']);
+                $produto->detalhes()->updateOrCreate(['produto_id' => $produto->id], $detalhesData);
+            } catch (\Exception $e) {
+            return redirect()->route('produto.index')
+                ->with('error', 'Erro ao salvar detalhes do produto: ' . $e->getMessage());
+            }
         }
 
         $dadosAtualizados = [];

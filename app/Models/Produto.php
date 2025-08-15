@@ -16,4 +16,9 @@ class Produto extends Model
         'imagem',
         'status'
     ];
+
+    public function detalhes()
+    {
+        return $this->hasOne(ProdutoDetalhe::class, 'produto_id', 'id');
+    }
 }

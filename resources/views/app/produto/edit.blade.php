@@ -45,6 +45,31 @@
                             </div>
                         @endif
                     </div>
+                    <div>
+                        <h5 class="mb-3">Detalhes do Produto</h5>
+                        @php
+                            $detalhes = $produto->detalhes ?? null;
+                        @endphp
+                        @foreach(['peso' => 'Peso em KG', 'largura' => 'Largura em CM', 'altura' => 'Altura em CM', 'comprimento' => 'Comprimento em CM'] as $field => $label)
+                            <div class="mb-3">
+                                <label for="{{ $field }}" class="form-label">{{ $label }}</label>
+                                <input
+                                    type="number"
+                                    step="0.01"
+                                    min="0"
+                                    max="99999999.99"
+                                    name="{{ $field }}"
+                                    id="{{ $field }}"
+                                    class="form-control @error($field) is-invalid @enderror"
+                                    value="{{ old($field, isset($detalhes->$field) ? number_format($detalhes->$field, 2, '.', '') : '') }}"
+                                    placeholder="{{ $label }}"
+                                >
+                                @error($field)
+                                    <div class="error-form-contato">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        @endforeach
+                    </div>
                     <button type="submit" class="btn btn-primary w-100">Atualizar</button>
                 </form>
             </div>

@@ -30,6 +30,20 @@
                         <div class="text-muted fst-italic mt-2">Nenhuma imagem cadastrada.</div>
                     @endif
                 </div>
+                <div>
+                    <h5>Detalhes do Produto:</h5>
+                    <ul class="list-unstyled">
+                        <li>
+                            Peso: {{ optional($produto->detalhes)->peso ?? '---' }} kg
+                        </li>
+                        <li>
+                            Dimensões: 
+                            {{ optional($produto->detalhes)->altura ?? '---' }} x 
+                            {{ optional($produto->detalhes)->largura ?? '---' }} x 
+                            {{ optional($produto->detalhes)->comprimento ?? '---' }} cm
+                        </li>
+                    </ul>
+                </div>
                 <div class="d-flex justify-content-between mt-4">
                     <a href="{{ route('produto.edit', $produto->id) }}" class="btn btn-primary">Editar</a>
                     <form action="{{ route('produto.destroy', $produto->id) }}" method="POST" onsubmit="return confirm('Tem certeza que deseja apagar este produto?');">
