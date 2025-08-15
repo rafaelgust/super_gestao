@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ContatoController;
+use App\Http\Controllers\FilialController;
 use App\Http\Controllers\FornecedorController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SiteController;
@@ -35,4 +36,5 @@ Route::middleware(['verified'])->group(function () {
 
         Route::resource('fornecedor', FornecedorController::class);
         Route::resource('cliente', ClienteController::class);
+        Route::resource('filial', FilialController::class);
 });

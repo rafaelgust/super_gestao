@@ -29,7 +29,7 @@
             @auth
                 <ul class="navbar-nav me-auto">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Filiais</a>
+                        <a class="nav-link" href="{{ route('filial.index') }}">Filiais</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Produtos</a>
