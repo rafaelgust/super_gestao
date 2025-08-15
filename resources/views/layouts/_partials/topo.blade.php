@@ -32,7 +32,7 @@
                         <a class="nav-link" href="{{ route('filial.index') }}">Filiais</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Produtos</a>
+                        <a class="nav-link" href="{{ route('produto.index') }}">Produtos</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a id="vendasDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
