@@ -12,4 +12,9 @@ class Fornecedor extends Model
 
     protected $fillable = ['nome', 'cnpj', 'email', 'telefone'];
 
+    public function pedidoCompras()
+    {
+        return $this->hasMany(PedidoCompra::class, 'fornecedor_id', 'id');
+    }
+
 }
