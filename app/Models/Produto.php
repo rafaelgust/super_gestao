@@ -21,4 +21,9 @@ class Produto extends Model
     {
         return $this->hasOne(ProdutoDetalhe::class, 'produto_id', 'id');
     }
+
+    public function filiais()
+    {
+        return $this->hasMany(ProdutoFilial::class, 'produto_id', 'id');
+    }
 }
