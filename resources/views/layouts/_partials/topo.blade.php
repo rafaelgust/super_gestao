@@ -43,7 +43,7 @@
                                 <a class="dropdown-item" href="{{ route('cliente.index') }}">Clientes</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">Pedidos</a>
+                                <a class="dropdown-item" href="{{ route('venda.index') }}">Pedidos</a>
                             </li>
                         </ul>
                     </li>
@@ -56,7 +56,7 @@
                                 <a class="dropdown-item" href="{{ route('fornecedor.index') }}">Fornecedores</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="#">Pedidos</a>
+                                <a class="dropdown-item" href="{{ route('compra.index') }}">Pedidos</a>
                             </li>
                         </ul>
                     </li>

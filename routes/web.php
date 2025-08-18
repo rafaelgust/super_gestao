@@ -5,6 +5,8 @@ use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\FilialController;
 use App\Http\Controllers\FornecedorController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PedidoCompraController;
+use App\Http\Controllers\PedidoVendaController;
 use App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\SiteController;
 use Illuminate\Support\Facades\Auth;
@@ -34,6 +36,24 @@ Route::middleware(['verified'])->group(function () {
         Route::get('/home', 
                 [HomeController::class, 'index'])
                         ->name('home');
+
+        Route::get('/pedido/compra', [PedidoCompraController::class, 'index'])
+                ->name('compra.index');
+        Route::get('/pedido/compra/criar/{produtoId}', [PedidoCompraController::class, 'create'])
+                ->name('compra.create');
+        Route::post('/pedido/compra', [PedidoCompraController::class, 'store'])
+                ->name('compra.store');
+        Route::get('/pedido/compra/edit/{compraId}', [PedidoCompraController::class, 'edit'])
+                ->name('compra.edit');
+
+        Route::put('/pedido/compra/{compraId}', [PedidoCompraController::class, 'update'])
+                ->name('compra.update');
+
+        Route::delete('/pedido/compra/{compraId}', [PedidoCompraController::class, 'destroy'])
+        ->name('compra.destroy');
+
+        Route::get('/pedido/venda', [PedidoVendaController::class, 'index'])
+                ->name('venda.index');
 
         Route::resource('fornecedor', FornecedorController::class);
         Route::resource('cliente', ClienteController::class);
