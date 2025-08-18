@@ -65,6 +65,9 @@
                                     <div class="d-inline">
                                         <a href="{{ route('compra.create', ['produtoId' => $produto->id]) }}" class="btn btn-success ms-2">Adicionar Compra</a>
                                     </div>
+                                    <div class="d-inline">
+                                        <a href="{{ route('venda.create', ['produtoId' => $produto->id]) }}" class="btn btn-success ms-2">Adicionar Venda</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>

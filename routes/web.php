@@ -45,12 +45,25 @@ Route::middleware(['verified'])->group(function () {
                 ->name('compra.store');
         Route::get('/pedido/compra/edit/{compraId}', [PedidoCompraController::class, 'edit'])
                 ->name('compra.edit');
-
         Route::put('/pedido/compra/{compraId}', [PedidoCompraController::class, 'update'])
                 ->name('compra.update');
-
         Route::delete('/pedido/compra/{compraId}', [PedidoCompraController::class, 'destroy'])
         ->name('compra.destroy');
+
+
+        Route::get('/pedido/venda', [PedidoVendaController::class, 'index'])
+                ->name('venda.index');
+        Route::get('/pedido/venda/criar/{produtoId}', [PedidoVendaController::class, 'create'])
+                ->name('venda.create');
+        Route::post('/pedido/venda', [PedidoVendaController::class, 'store'])
+                ->name('venda.store');
+        Route::get('/pedido/venda/edit/{vendaId}', [PedidoVendaController::class, 'edit'])
+                ->name('venda.edit');
+        Route::put('/pedido/venda/{vendaId}', [PedidoVendaController::class, 'update'])
+                ->name('venda.update');
+        Route::delete('/pedido/venda/{vendaId}', [PedidoVendaController::class, 'destroy'])
+                ->name('venda.destroy');
+
 
         Route::get('/pedido/venda', [PedidoVendaController::class, 'index'])
                 ->name('venda.index');
