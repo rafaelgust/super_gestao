@@ -39,7 +39,7 @@ Route::middleware(['verified'])->group(function () {
 
         Route::get('/pedido/compra', [PedidoCompraController::class, 'index'])
                 ->name('compra.index');
-        Route::get('/pedido/compra/criar/{produtoId}', [PedidoCompraController::class, 'create'])
+        Route::get('/pedido/compra/criar/{fornecedorId}', [PedidoCompraController::class, 'create'])
                 ->name('compra.create');
         Route::post('/pedido/compra', [PedidoCompraController::class, 'store'])
                 ->name('compra.store');

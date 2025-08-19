@@ -62,6 +62,7 @@
                             <td class="text-center">
                             <a href="{{ route('fornecedor.show', $fornecedor->id) }}" class="btn btn-info btn-sm mb-1">Ver</a>
                             <a href="{{ route('fornecedor.edit', $fornecedor->id) }}" class="btn btn-warning btn-sm mb-1">Editar</a>
+                            <a href="{{ route('compra.create', ['fornecedorId' => $fornecedor->id]) }}" class="btn btn-success ms-2">Adicionar Compra</a>
                             </td>
                         </tr>
                         @endforeach

@@ -11,17 +11,8 @@
                 @csrf
                 <div class="mb-3">
                     <label for="select-fornecedores" class="form-label">Fornecedor</label>
-                    <select id="select-fornecedores" name="fornecedor_id" class="form-select" required>
-                        <option value="" disabled {{ empty(old('fornecedor_id', $fornecedorId ?? '')) ? 'selected' : '' }}>Selecione um fornecedor</option>
-                        @foreach($fornecedores as $fornecedor)
-                            <option value="{{ $fornecedor->id }}" {{ old('fornecedor_id', $fornecedorId ?? '') == $fornecedor->id ? 'selected' : '' }}>
-                                {{ $fornecedor->nome }}
-                            </option>
-                        @endforeach
-                    </select>
-                    @error('fornecedor_id')
-                        <div class="text-danger mt-1">{{ $message }}</div>
-                    @enderror
+                    <input type="text" class="form-control" id="select-fornecedores" name="fornecedor_nome" value="{{ $fornecedor->nome }} (ID: {{ $fornecedor->id }})" disabled>
+                    <input type="hidden" name="fornecedor_id" value="{{ $fornecedor->id }}">
                 </div>
                 <div class="mb-3">
                     <label for="input-nota-fiscal" class="form-label">Nota Fiscal</label>
@@ -64,7 +55,7 @@
                         <div class="mb-3 d-flex align-items-center gap-3">
                             <div class="border rounded p-2 bg-light" style="width: 220px; height: 220px; display: flex; align-items: center; justify-content: center;">
                                 <img id="imagem-produto"
-                                    src="{{ isset($produtos[0]) && $produtos[0]->imagem ? asset('storage/' . $produtos[0]->imagem) : asset('images/no-image.png') }}"
+                                    src="{{ isset($produtos[0]) && $produtos[0]->imagem ? asset('storage/' . $produtos[0]->imagem) : asset('images/no-image.jpg') }}"
                                     alt="Imagem do Produto"
                                     style="max-width: 200px; max-height: 200px; object-fit: contain; transition: box-shadow 0.2s;"
                                     class="shadow-sm"
@@ -131,12 +122,14 @@ document.addEventListener('DOMContentLoaded', function() {
     var imagemProduto = document.getElementById('imagem-produto');
     var produtos = @json($produtos);
 
+    imagemProduto.src = '{{ asset('img/no-image.jpg') }}';
+
     function atualizarImagem(produtoId) {
         var produto = produtos.find(p => p.id == produtoId);
         if (produto && produto.imagem) {
             imagemProduto.src = '/storage/' + produto.imagem;
         } else {
-            imagemProduto.src = '';
+            imagemProduto.src = '{{ asset('img/no-image.jpg') }}';
         }
     }
 
@@ -188,7 +181,7 @@ class PedidoCompra {
             produto.id,
             produto.nome,
             preco,
-            produto.imagem ? '/storage/' + produto.imagem : '{{ asset("images/no-image.png") }}'
+            produto.imagem ? '/storage/' + produto.imagem : '{{ asset("images/no-image.jpg") }}'
             );
             this.produtos.push(novoProduto);
         }
@@ -248,7 +241,7 @@ class PedidoCompra {
 
         // Coleta dados do formulário
         const notaFiscal = document.getElementById('input-nota-fiscal').value;
-        const fornecedorId = document.getElementById('select-fornecedores').value;
+        const fornecedorId = document.querySelector('input[name="fornecedor_id"]').value;
         const data_do_pedido = document.getElementById('input-data-pedido').value;
         const data_entrega = document.getElementById('input-data-entrega').value;
 

@@ -41,12 +41,12 @@ class PedidoCompraController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create($produtoId)
+    public function create($fornecedorId)
     {
-        $fornecedores = Fornecedor::all();
+        $fornecedor = Fornecedor::find($fornecedorId);
         $produtos = Produto::all();
 
-        return view('app.compra.create', compact('produtoId', 'fornecedores', 'produtos'));
+        return view('app.compra.create', compact('fornecedor', 'produtos'));
     }
 
     /**
