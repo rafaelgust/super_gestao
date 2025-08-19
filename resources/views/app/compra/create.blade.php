@@ -110,8 +110,6 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     var selectProdutos = document.getElementById('select-produtos');
-    var idProdutoInicial = selectProdutos.value;
-    console.log('Produto selecionado ao carregar:', idProdutoInicial);
 
     selectProdutos.addEventListener('change', function() {
         var produtoId = this.value;
@@ -325,6 +323,7 @@ class Produto {
         this.preco = preco;
         this.imagem = imagem;
         this.quantidade = 1;
+        this.selecionado = false;
     }
 
     renderizarItem() {
