@@ -1,8 +1,8 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top shadow-sm">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
         
         <a class="navbar-brand" href="{{ route('site.index') }}">
-            <img src="{{ asset('img/logo.png') }}" alt="Logo Super Gestão" height="50">
+            <img src="{{ asset('img/logo.png') }}" alt="Logo Super Gestão" height="50" width="50">
         </a>
         
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

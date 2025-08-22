@@ -8,11 +8,11 @@
         @vite(['resources/sass/app.scss', 'resources/js/app.js'])
         {{-- Se quiser manter o estilo antigo, pode deixar a linha abaixo também --}}
         <!-- <link rel="stylesheet" href=" asset('css/estilo_basico.css') "> -->
+        <script src="{{ asset('js/jquery-3.7.1.min.js') }}"></script>
     </head>
-    
     <body>
-        @include('layouts._partials.topo')
-        <main>
+        @include('app.layouts._partials.sidebar')
+        <main class="p-4">
             @yield('conteudo')
         </main>
     </body>

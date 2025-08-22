@@ -12,7 +12,7 @@
     
     <body>
         @include('site.layouts._partials.topo')
-        <main class="pt-5" style="margin-top: 40px;background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); min-height: 100vh; padding: 60px 0;">
+        <main class="container py-4">
             @yield('conteudo')
         </main>
         @include('site.layouts._partials.rodape')

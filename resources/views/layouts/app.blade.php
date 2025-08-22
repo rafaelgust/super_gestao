@@ -10,7 +10,7 @@
         <!-- <link rel="stylesheet" href=" asset('css/estilo_basico.css') "> -->
     </head>
     <body>
-        @include('layouts._partials.topo')
+        @include('site.layouts._partials.topo')
         <main class="py-4">
             @yield('content')
         </main>

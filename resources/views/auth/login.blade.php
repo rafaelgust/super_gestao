@@ -5,8 +5,8 @@
     <div class="row justify-content-center align-items-center" style="min-height: 80vh;">
         <div class="col-md-6">
             <div class="card shadow-lg border-0 rounded-4">
-                <div class="card-header bg-primary text-white text-center rounded-top-4">
-                    <h4 class="mb-0">Entrar</h4>
+                <div class="card-header bg-primary text-white text-center rounded-top-4 py-3">
+                    <h4 class="mb-0">Acessar o Painel</h4>
                 </div>
                 <div class="card-body p-5">
                     <form method="POST" action="{{ route('login') }}">
