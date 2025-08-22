@@ -72,8 +72,16 @@
         <hr>
         <div class="dropdown">
             <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle sidebar-item" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
-                <span class="sidebar-text d-none"><strong>mdo</strong></span>
+                <div style="width:32px; height:32px;margin-right:10px;">
+                    @if (!empty(Auth::user()->imagem))
+                        <img src="{{ asset('storage/' . Auth::user()->imagem) }}" alt="{{ Auth::user()->name }}" class="rounded-circle me-2" width="32" height="32">
+                    @else
+                        <span class="rounded-circle bg-secondary d-flex align-items-center justify-content-center me-2" style="width:32px; height:32px;">
+                            <i class="bi bi-person-fill text-white"></i>
+                        </span>
+                    @endif
+                </div>
+                <span class="sidebar-text d-none"><strong>{{ Auth::user()->name }}</strong></span>
             </a>
             <ul class="dropdown-menu dropdown-menu-dark text-small shadow">
                 <li><a class="dropdown-item" href="#">Configurações</a></li>
@@ -164,15 +172,17 @@
             $(this).removeClass('sidebar-collapsed').addClass('sidebar-expanded');
             $('.sidebar-text').removeClass('d-none');
             $('#close-sidebar').removeClass('d-none');
+            $('#sidebar #completed .dropdown ul').removeClass('d-none');
             }
             e.stopPropagation();
         });
 
         $('#sidebar #completed').on('mouseleave', function(e) {
             if ($(this).hasClass('sidebar-expanded')) {
-            $(this).removeClass('sidebar-expanded').addClass('sidebar-collapsed');
-            $('.sidebar-text').addClass('d-none');
-            $('#close-sidebar').addClass('d-none');
+                $(this).removeClass('sidebar-expanded').addClass('sidebar-collapsed');
+                $('.sidebar-text').addClass('d-none');
+                $('#close-sidebar').addClass('d-none');
+                $('#sidebar #completed .dropdown ul').addClass('d-none');
             }
             e.stopPropagation();
         });
