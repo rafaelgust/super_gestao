@@ -14,7 +14,7 @@
                     'text' => 'Dashboard',
                 ],
                 [
-                    'link' => '#',
+                    'link' => route('contato.lista'),
                     'icon' => 'bi bi-envelope',
                     'text' => 'Contatos',
                 ],

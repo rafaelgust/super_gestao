@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class ContatoController extends Controller
 {
+    public function lista()
+    {
+        $contatos = SiteContato::all();
+        return view('app.contato.index', compact('contatos'));
+    }
+
     public function store(Request $request)
     {
         $regras = [ 'nome' => 'required|string|max:100',
