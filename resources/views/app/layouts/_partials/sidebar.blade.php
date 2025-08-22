@@ -60,10 +60,10 @@
                 @else
                     <li>
                         <a href="{{ $item['link'] }}" class="nav-link text-white d-flex align-items-center sidebar-item">
-                            <div class="me-2">
+                            <div>
                                 <i class="{{ $item['icon'] }}"></i>
                             </div>
-                            <span class="sidebar-text d-none">{{ $item['text'] }}</span>
+                            <span class="ms-2 sidebar-text d-none">{{ $item['text'] }}</span>
                         </a>
                     </li>
                 @endif
