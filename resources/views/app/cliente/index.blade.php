@@ -60,8 +60,9 @@
                             <td>{{ $cliente->email }}</td>
                             <td>{{ $cliente->telefone }}</td>
                             <td class="text-center">
-                            <a href="{{ route('cliente.show', $cliente->id) }}" class="btn btn-info btn-sm mb-1">Ver</a>
-                            <a href="{{ route('cliente.edit', $cliente->id) }}" class="btn btn-warning btn-sm mb-1">Editar</a>
+                                <a href="{{ route('cliente.show', $cliente->id) }}" class="btn btn-info btn-sm mb-1">Ver</a>
+                                <a href="{{ route('cliente.edit', $cliente->id) }}" class="btn btn-warning btn-sm mb-1">Editar</a>
+                                <a href="{{ route('venda.create', ['clienteId' => $cliente->id]) }}" class="btn btn-success ms-2">Adicionar Venda</a>
                             </td>
                         </tr>
                         @endforeach

@@ -11,17 +11,8 @@
                 @csrf
                 <div class="mb-3">
                     <label for="select-clientes" class="form-label">Cliente</label>
-                    <select id="select-clientes" name="cliente_id" class="form-select" required>
-                        <option value="" disabled {{ empty(old('cliente_id', $clienteId ?? '')) ? 'selected' : '' }}>Selecione um cliente</option>
-                        @foreach($clientes as $cliente)
-                            <option value="{{ $cliente->id }}" {{ old('cliente_id', $clienteId ?? '') == $cliente->id ? 'selected' : '' }}>
-                                {{ $cliente->nome }}
-                            </option>
-                        @endforeach
-                    </select>
-                    @error('cliente_id')
-                        <div class="text-danger mt-1">{{ $message }}</div>
-                    @enderror
+                    <input type="text" class="form-control" id="select-clientes" name="cliente_nome" value="{{ $cliente->nome }} (ID: {{ $cliente->id }})" disabled>
+                    <input type="hidden" name="cliente_id" value="{{ $cliente->id }}">
                 </div>
                 <div class="mb-3">
                     <label for="input-nota-fiscal" class="form-label">Nota Fiscal</label>
@@ -119,8 +110,6 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     var selectProdutos = document.getElementById('select-produtos');
-    var idProdutoInicial = selectProdutos.value;
-    console.log('Produto selecionado ao carregar:', idProdutoInicial);
 
     selectProdutos.addEventListener('change', function() {
         var produtoId = this.value;
@@ -248,7 +237,7 @@ class PedidoVenda {
 
         // Coleta dados do formulário
         const notaFiscal = document.getElementById('input-nota-fiscal').value;
-        const clienteId = document.getElementById('select-clientes').value;
+        const clienteId = document.querySelector('input[name="cliente_id"]').value;
         const data_do_pedido = document.getElementById('input-data-pedido').value;
         const data_entrega = document.getElementById('input-data-entrega').value;
 

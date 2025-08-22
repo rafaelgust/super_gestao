@@ -41,12 +41,12 @@ class PedidoVendaController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create($produtoId)
+    public function create($clienteId)
     {
-        $clientes = Cliente::all();
+        $cliente = Cliente::findOrFail($clienteId);
         $produtos = Produto::all();
 
-        return view('app.venda.create', compact('produtoId', 'clientes', 'produtos'));
+        return view('app.venda.create', compact('cliente', 'produtos'));
     }
 
     /**

@@ -53,7 +53,7 @@ Route::middleware(['verified'])->group(function () {
 
         Route::get('/pedido/venda', [PedidoVendaController::class, 'index'])
                 ->name('venda.index');
-        Route::get('/pedido/venda/criar/{produtoId}', [PedidoVendaController::class, 'create'])
+        Route::get('/pedido/venda/criar/{clienteId}', [PedidoVendaController::class, 'create'])
                 ->name('venda.create');
         Route::post('/pedido/venda', [PedidoVendaController::class, 'store'])
                 ->name('venda.store');
@@ -64,9 +64,6 @@ Route::middleware(['verified'])->group(function () {
         Route::delete('/pedido/venda/{vendaId}', [PedidoVendaController::class, 'destroy'])
                 ->name('venda.destroy');
 
-
-        Route::get('/pedido/venda', [PedidoVendaController::class, 'index'])
-                ->name('venda.index');
 
         Route::resource('fornecedor', FornecedorController::class);
         Route::resource('cliente', ClienteController::class);
