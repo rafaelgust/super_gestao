@@ -22,6 +22,18 @@
                                 <button type="submit" class="btn btn-danger">Apagar</button>
                             </form>
                         </div>
+                        <div class="mt-4">
+                            <h6>Detalhes:</h6>
+                            <p><strong>ID:</strong> {{ $filial->id }}</p>
+                            <p><strong>Endereço:</strong> {{ $filial->endereco }}</p>
+                            <p><strong>Telefone:</strong> {{ $filial->telefone }}</p>
+                        </div>
+                        <h6>Lista de Produtos:</h6>
+                        <ul>
+                            @foreach ($filial->produtos as $produto)
+                                <li>{{ $produto->nome }}</li>
+                            @endforeach
+                        </ul>
                     </div>
                 </div>
             </div>

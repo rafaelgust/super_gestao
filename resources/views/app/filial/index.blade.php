@@ -45,7 +45,8 @@
                     <table class="table table-bordered table-striped align-middle">
                     <thead>
                         <tr class="text-center">
-                        <th>Nome</th>
+                            <th>Nome</th>
+                            <th>Ações</th>
                         </tr>
                     </thead>
                     <tbody>

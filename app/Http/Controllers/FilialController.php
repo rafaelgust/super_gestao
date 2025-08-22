@@ -24,7 +24,8 @@ class FilialController extends Controller
                 $query->where(function ($q) use ($buscar) {
                     $q->where('nome', 'like', "%$buscar%");
                 });
-            })->paginate(10);
+            })->with('produtos')
+            ->paginate(10);
 
             return view("app.filial.index", [
                 'filiais' => $filiais,
