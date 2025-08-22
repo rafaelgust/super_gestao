@@ -106,7 +106,15 @@
         height: 100%;
         transition: width 0.3s ease;
         overflow-x: hidden;
+        overflow-y: scroll;
+        scrollbar-width: none;   /* Firefox */
+        -ms-overflow-style: none;   /* IE e Edge antigo */
         width: 80px;
+    }
+
+    /* Chrome, Safari, Edge */
+    #sidebar #completed::-webkit-scrollbar {
+    display: none;
     }
 
     #sidebar #completed.sidebar-expanded {

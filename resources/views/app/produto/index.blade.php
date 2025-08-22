@@ -3,8 +3,8 @@
 @section('titulo', 'Produtos')
 
 @section('conteudo')
-    <div class="container my-4">
-        <div class="row mb-4">
+    <div class="container">
+        <div class=" mb-4">
             <div class="col text-center">
                 <h2>Produtos</h2>
             </div>
