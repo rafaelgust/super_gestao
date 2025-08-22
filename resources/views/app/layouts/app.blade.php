@@ -12,7 +12,7 @@
     </head>
     <body>
         @include('app.layouts._partials.sidebar')
-        <main class="p-4">
+        <main style="margin-left: 80px;" class="p-3">
             @yield('conteudo')
         </main>
     </body>

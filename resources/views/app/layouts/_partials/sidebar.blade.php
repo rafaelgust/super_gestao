@@ -6,74 +6,68 @@
             </a>
         </div>
         <hr>
+        @php
+            $sidebarLinks = [
+                [
+                    'link' => route('home'),
+                    'icon' => 'bi bi-person-fill',
+                    'text' => 'Dashboard',
+                ],
+                [
+                    'link' => '#',
+                    'icon' => 'bi bi-envelope',
+                    'text' => 'Contatos',
+                ],
+                'divider',
+                [
+                    'link' => route('filial.index'),
+                    'icon' => 'bi bi-geo-alt',
+                    'text' => 'Filias',
+                ],
+                [
+                    'link' => route('produto.index'),
+                    'icon' => 'bi bi-box',
+                    'text' => 'Produtos',
+                ],
+                'divider',
+                [
+                    'link' => route('cliente.index'),
+                    'icon' => 'bi bi-people',
+                    'text' => 'Clientes',
+                ],
+                [
+                    'link' => route('venda.index'),
+                    'icon' => 'bi bi-table',
+                    'text' => 'Pedidos de Vendas',
+                ],
+                'divider',
+                [
+                    'link' => route('fornecedor.index'),
+                    'icon' => 'bi bi-truck',
+                    'text' => 'Fornecedor',
+                ],
+                [
+                    'link' => route('compra.index'),
+                    'icon' => 'bi bi-table',
+                    'text' => 'Pedidos de Compras',
+                ],
+            ];
+        @endphp
         <ul class="nav nav-pills flex-column mb-auto">
-            <li>
-                <a href="{{ route('home') }}" class="nav-link text-white d-flex align-items-center sidebar-item">
-                    <div class="me-2">
-                        <i class="bi bi-person-fill"></i>
-                    </div>
-                    <span class="sidebar-text d-none">Dashboard</span>
-                </a>
-            </li>
-            <li>
-                <a href="#" class="nav-link text-white d-flex align-items-center sidebar-item">
-                    <div class="me-2">
-                        <i class="bi bi-envelope"></i>
-                    </div>
-                    <span class="sidebar-text d-none">Contatos</span>
-                </a>
-            </li>
-            <hr>
-            <li>
-                <a href="{{ route('filial.index') }}" class="nav-link text-white d-flex align-items-center sidebar-item">
-                    <div class="me-2">
-                        <i class="bi bi-geo-alt"></i>
-                    </div>
-                    <span class="sidebar-text d-none">Filias</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('produto.index') }}" class="nav-link text-white d-flex align-items-center sidebar-item">
-                    <div class="me-2">
-                        <i class="bi bi-box"></i>
-                    </div>
-                    <span class="sidebar-text d-none">Produtos</span>
-                </a>
-            </li>
-            <hr>
-            <li>
-                <a href="{{ route('cliente.index') }}" class="nav-link text-white d-flex align-items-center sidebar-item">
-                    <div class="me-2">
-                        <i class="bi bi-people"></i>
-                    </div>
-                    <span class="sidebar-text d-none">Clientes</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('venda.index') }}" class="nav-link text-white d-flex align-items-center sidebar-item">
-                    <div class="me-2">
-                        <i class="bi bi-table"></i>
-                    </div>
-                    <span class="sidebar-text d-none">Pedidos de Vendas</span>
-                </a>
-            </li>
-            <hr>
-            <li>
-                <a href="{{ route('fornecedor.index') }}" class="nav-link text-white d-flex align-items-center sidebar-item">
-                    <div class="me-2">
-                        <i class="bi bi-truck"></i>
-                    </div>
-                    <span class="sidebar-text d-none">Fornecedor</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('compra.index') }}" class="nav-link text-white d-flex align-items-center sidebar-item">
-                    <div class="me-2">
-                        <i class="bi bi-table"></i>
-                    </div>
-                    <span class="sidebar-text d-none">Pedidos de Compras</span>
-                </a>
-            </li>
+            @foreach ($sidebarLinks as $item)
+                @if ($item === 'divider')
+                    <hr>
+                @else
+                    <li>
+                        <a href="{{ $item['link'] }}" class="nav-link text-white d-flex align-items-center sidebar-item">
+                            <div class="me-2">
+                                <i class="{{ $item['icon'] }}"></i>
+                            </div>
+                            <span class="sidebar-text d-none">{{ $item['text'] }}</span>
+                        </a>
+                    </li>
+                @endif
+            @endforeach
         </ul>
         <hr>
         <div class="dropdown">
