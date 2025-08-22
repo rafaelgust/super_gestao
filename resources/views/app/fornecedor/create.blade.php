@@ -22,7 +22,8 @@
                         @endif
                     </div>
                     <div class="mb-3">
-                        <input type="text" name="cnpj" class="form-control @error('cnpj') is-invalid @enderror" placeholder="CNPJ" value="{{ old('cnpj') }}">
+                        <input type="text" name="cnpj_sem_formatacao" class="form-control @error('cnpj') is-invalid @enderror" placeholder="CNPJ" value="{{ old('cnpj') }}">
+                        <input type="hidden" name="cnpj" value="{{ old('cnpj') }}">
                         @if ($errors->has('cnpj'))
                         <div class="error-form-contato">
                             {{ $errors->first('cnpj') }}
@@ -51,3 +52,23 @@
         </div>
     </div>
 @endsection
+<script>
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        //script para auto corrigir o campo de cnpj, em que apaga os caracteres especiais durante a digitação, mantendo apenas os números
+        var cnpjSemFormatacaoInput = document.querySelector('input[name="cnpj_sem_formatacao"]');
+        var cnpjHiddenInput = document.querySelector('input[name="cnpj"]');
+        cnpjSemFormatacaoInput.addEventListener('input', function() {
+            var onlyNumbers = this.value.replace(/[^\d]/g, '');
+            cnpjHiddenInput.value = onlyNumbers;
+        });
+
+        //formatar o campo do telefone para que quando for digitado um numero ele fique (xx) xxxx-xxxx ou (xx) xxxxx-xxxx
+        var telefoneInput = document.querySelector('input[name="telefone"]');
+        telefoneInput.addEventListener('input', function() {
+            var onlyNumbers = this.value.replace(/[^\d]/g, '');
+            var formatted = onlyNumbers.replace(/(\d{2})(\d{4,5})(\d{4})/, '($1) $2-$3');
+            this.value = formatted;
+        });
+    });
+</script>
