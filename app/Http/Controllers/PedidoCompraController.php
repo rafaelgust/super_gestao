@@ -114,7 +114,8 @@ class PedidoCompraController extends Controller
      */
     public function show($id)
     {
-        //
+        $compra = PedidoCompra::with('itens.produto')->findOrFail($id);
+        return view('app.compra.show', compact('compra'));
     }
 
     /**
@@ -123,9 +124,14 @@ class PedidoCompraController extends Controller
     public function edit($id)
     {
         $compra = PedidoCompra::with('itens.produto')->findOrFail($id);
+
+        if($compra->status === 'concluido') {
+            return redirect()->route('compra.show', $id)->with('error', 'Não é possível editar um pedido concluído.');
+        }
+
         $fornecedores = Fornecedor::all();
 
-        $statusList = ['criado', 'em andamento', 'concluido'];
+        $statusList = ['criado', 'em analise', 'em andamento'];
 
         return view('app.compra.edit', compact('compra', 'fornecedores', 'statusList'));
     }
@@ -165,7 +171,22 @@ class PedidoCompraController extends Controller
                 'data_pedido' => $compra->data_pedido,
                 'data_entrega' => $request->input('data_entrega')
             ]);
-        
+
+
+            if ($request->input('status') === 'concluido') {
+                $compra->itens()->each(function ($item) {
+                    $item->produto->produtoFiliais()->updateOrCreate(
+                        ['filial_id' => 1],
+                        [
+                            'estoque_atual' => DB::raw('estoque_atual + ' . $item->quantidade),
+                            'preco_venda' => $item->preco_unitario,
+                            'estoque_minimo' => $item->produto->estoque_minimo ?? DB::raw('COALESCE(estoque_minimo, 0)'),
+                            'estoque_maximo' => max($item->produto->estoque_maximo ?? 0, DB::raw('estoque_atual + ' . $item->quantidade))
+                        ]
+                    );
+                });
+            }
+
             DB::commit();
 
             return response()->json(['message' => 'Pedido atualizado com sucesso', 'pedido_compra_id' => $compra->id], 200);

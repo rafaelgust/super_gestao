@@ -16,7 +16,6 @@ class ProdutoFilial extends Model
         'id',
         'produto_id',
         'filial_id',
-        'estoque',
         'preco_venda', // preco recomendado para venda
         'estoque_minimo', // quantidade minima em estoque
         'estoque_maximo', // quantidade maxima em estoque

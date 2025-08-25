@@ -69,7 +69,10 @@
                         <span id="valor-total" class="fw-bold text-success ms-2">R$ {{ number_format($compra->valor_total, 2, ',', '.') }}</span>
                     </div>
                     <div class="mb-3 row">
-                        <button class="btn btn-primary" id="btn-finalizar-compra" onclick="pedidoCompra.finalizarPedido(event)">Salvar Alterações</button>
+                        <button class="btn btn-primary" id="btn-finalizar-compra" onclick="pedidoCompra.salvarPedido(event)">Salvar Alterações</button>
+                    </div>
+                    <div class="mb-3 row">
+                        <button class="btn btn-success" id="btn-finalizar-compra" onclick="pedidoCompra.finalizarPedido(event)">Concluir Pedido</button>
                     </div>
                     <div class="mb-3 row">
                         <button type="button" class="btn btn-danger" onclick="pedidoCompra.apagarPedido({{ $compra->id }})">Apagar Pedido</button>
@@ -124,97 +127,93 @@
     </div>
 @endsection
 <script>
-    const pedidoCompra = {
-        finalizarPedido: function(event) {
-            event.preventDefault();
-
-            const form = document.getElementById('form-editar-compra');
-            const payload = {
-                data_entrega: form.data_entrega.value,
-                status: form.status.value
-            };
-
-            fetch(`/pedido/compra/{{ $compra->id }}`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json',
-                    'X-CSRF-TOKEN': document.querySelector('input[name=_token]').value
-                },
-                body: JSON.stringify(payload)
-            })
-            .then(async response => {
-                if (response.ok) {
-                    Swal.fire({
-                        title: 'Pedido atualizado com sucesso!',
-                        text: 'O pedido foi alterado.',
-                        icon: 'success',
-                        timer: 2000,
-                        showConfirmButton: false,
-                        willClose: () => {
-                            window.location.href = '/pedido/compra';
-                        }
-                    });
-                } else {
-                    const contentType = response.headers.get('content-type');
-                    if (contentType && contentType.includes('application/json')) {
-                        const data = await response.json();
-                        throw new Error(data.message || 'Erro ao atualizar pedido.');
-                    } else {
-                        const text = await response.text();
-                        throw new Error('Erro inesperado: ' + text.substring(0, 200));
-                    }
+    const pedidoCompra = (() => {
+        // Função utilitária para exibir alertas SweetAlert
+        function showAlert({ title, text, icon, timer = null, redirect = null }) {
+            Swal.fire({
+                title,
+                text,
+                icon,
+                timer,
+                showConfirmButton: !timer,
+                willClose: () => {
+                    if (redirect) window.location.href = redirect;
                 }
-            })
-            .catch(error => {
-                Swal.fire({
-                    title: 'Erro ao atualizar pedido',
-                    text: error.message,
-                    icon: 'error',
-                    confirmButtonText: 'OK'
-                });
             });
-        },
-        apagarPedido: function(compraId) {
-            if (confirm('Tem certeza que deseja apagar este pedido?')) {
-                fetch(`/pedido/compra/${compraId}`, {
-                    method: 'DELETE',
+        }
+
+        // Função utilitária para tratar respostas fetch
+        async function handleResponse(response, successMsg, redirectUrl) {
+            if (response.ok) {
+                showAlert({ title: successMsg, text: '', icon: 'success', timer: 2000, redirect: redirectUrl });
+            } else {
+                const contentType = response.headers.get('content-type');
+                let errorMsg = 'Erro inesperado.';
+                if (contentType && contentType.includes('application/json')) {
+                    const data = await response.json();
+                    errorMsg = data.message || errorMsg;
+                } else {
+                    const text = await response.text();
+                    errorMsg = errorMsg + ' ' + text.substring(0, 200);
+                }
+                throw new Error(errorMsg);
+            }
+        }
+
+        // Função para atualizar ou concluir pedido
+        async function submitPedido(event, url, payload, successMsg) {
+            event.preventDefault();
+            try {
+                const response = await fetch(url, {
+                    method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',
                         'X-CSRF-TOKEN': document.querySelector('input[name=_token]').value
-                    }
-                })
-                .then(async response => {
-                    if (response.ok) {
-                        Swal.fire({
-                            title: 'Pedido apagado com sucesso!',
-                            text: 'O pedido foi removido.',
-                            icon: 'success',
-                            timer: 2000,
-                            showConfirmButton: false,
-                            willClose: () => {
-                                window.location.href = '/pedido/compra';
-                            }
-                        });
-                    } else {
-                        const contentType = response.headers.get('content-type');
-                        if (contentType && contentType.includes('application/json')) {
-                            const data = await response.json();
-                            throw new Error(data.message || 'Erro ao apagar pedido.');
-                        } else {
-                            const text = await response.text();
-                            throw new Error('Erro inesperado: ' + text.substring(0, 200));
-                        }
-                    }
-                })
-                .catch(error => {
-                    Swal.fire({
-                        title: 'Erro ao apagar pedido',
-                        text: error.message,
-                        icon: 'error',
-                        confirmButtonText: 'OK'
-                    });
+                    },
+                    body: JSON.stringify(payload)
                 });
+                await handleResponse(response, successMsg, '/pedido/compra');
+            } catch (error) {
+                showAlert({ title: 'Erro ao atualizar pedido', text: error.message, icon: 'error' });
             }
         }
-    };
+
+        // Função para apagar pedido
+        async function apagarPedido(compraId) {
+            if (confirm('Tem certeza que deseja apagar este pedido?')) {
+                try {
+                    const response = await fetch(`/pedido/compra/${compraId}`, {
+                        method: 'DELETE',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('input[name=_token]').value
+                        }
+                    });
+                    await handleResponse(response, 'Pedido apagado com sucesso!', '/pedido/compra');
+                } catch (error) {
+                    showAlert({ title: 'Erro ao apagar pedido', text: error.message, icon: 'error' });
+                }
+            }
+        }
+
+        return {
+            salvarPedido: function(event) {
+                const form = document.getElementById('form-editar-compra');
+                const payload = {
+                    data_entrega: form.data_entrega.value,
+                    status: form.status.value
+                };
+                submitPedido(event, `/pedido/compra/{{ $compra->id }}`, payload, 'Pedido atualizado com sucesso!');
+            },
+            finalizarPedido: function(event) {
+                const form = document.getElementById('form-editar-compra');
+                const payload = {
+                    data_entrega: form.data_entrega.value,
+                    status: 'concluido'
+                };
+                submitPedido(event, `/pedido/compra/{{ $compra->id }}`, payload, 'Pedido atualizado com sucesso!');
+            },
+            apagarPedido
+        };
+    })();
 </script>

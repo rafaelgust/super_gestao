@@ -44,6 +44,8 @@ Route::middleware(['verified'])->group(function () {
                 ->name('compra.store');
         Route::get('/pedido/compra/edit/{compraId}', [PedidoCompraController::class, 'edit'])
                 ->name('compra.edit');
+        Route::get('/pedido/compra/{compraId}', [PedidoCompraController::class, 'show'])
+                ->name('compra.show');
         Route::put('/pedido/compra/{compraId}', [PedidoCompraController::class, 'update'])
                 ->name('compra.update');
         Route::delete('/pedido/compra/{compraId}', [PedidoCompraController::class, 'destroy'])

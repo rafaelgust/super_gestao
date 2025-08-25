@@ -91,13 +91,23 @@
                                             </td>
                                             <td class="py-3 px-4">
                                                 <div class="d-flex justify-content-center gap-2">
-                                                    <a href="{{ route('compra.edit', $compra->id) }}" 
-                                                       class="btn btn-outline-warning btn-sm" 
-                                                       style="border-radius: 8px;"
-                                                       data-bs-toggle="tooltip" 
-                                                       title="Editar compra">
-                                                        <i class="bi bi-pencil"></i>
-                                                    </a>
+                                                    @if(strtolower($compra->status) === 'concluido')
+                                                        <a href="{{ route('compra.show', $compra->id) }}" 
+                                                           class="btn btn-outline-success btn-sm" 
+                                                           style="border-radius: 8px;"
+                                                           data-bs-toggle="tooltip" 
+                                                           title="Mostrar compra">
+                                                            <i class="bi bi-eye"></i>
+                                                        </a>
+                                                    @else
+                                                        <a href="{{ route('compra.edit', $compra->id) }}" 
+                                                           class="btn btn-outline-warning btn-sm" 
+                                                           style="border-radius: 8px;"
+                                                           data-bs-toggle="tooltip" 
+                                                           title="Editar compra">
+                                                            <i class="bi bi-pencil"></i>
+                                                        </a>
+                                                    @endif
                                                     <form action="{{ route('compra.destroy', $compra->id) }}" method="POST" class="d-inline">
                                                         @csrf
                                                         @method('DELETE')
