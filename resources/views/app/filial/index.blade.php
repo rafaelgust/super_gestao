@@ -3,23 +3,15 @@
 @section('titulo', 'Filiais')
 
 @section('conteudo')
-    <div class="container my-4">
-        <div class="row mb-4">
-            <div class="col text-center">
-                <h2>Filiais</h2>
-            </div>
-        </div>
-        <div class="row mb-3 justify-content-center">
-            <div class="col-md-8 d-flex align-items-center justify-content-between">
-                <form action="{{ route('filial.index') }}" method="GET" class="w-100 d-flex gap-2">
-                    <div class="input-group">
-                        <input type="text" id="buscar" name="buscar" class="form-control" placeholder="Buscar filial..." value="{{ request('buscar') }}">
-                        <button type="submit" class="btn btn-primary">Pesquisar</button>
-                    </div>
-                </form>
-                <a href="{{ route('filial.create') }}" class="btn btn-success ms-2">Adicionar Filial</a>
-            </div>
-        </div>
+    <div class="container">
+        @component('app.layouts._components.search-header', [
+            'titulo' => 'Filiais',
+            'placeholder' => 'Buscar filial...',
+            'rota_pesquisa' => route('filial.index'),
+            'rota_criar' => route('filial.create'),
+            'texto_btn' => 'Adicionar Filial'
+        ])
+        @endcomponent
         <div class="row justify-content-center">
             <div class="col-md-8">
             @if(session('success'))

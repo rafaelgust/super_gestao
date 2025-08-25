@@ -4,21 +4,12 @@
 
 @section('conteudo')
     <div class="container my-4">
-        <div class="row mb-4">
-            <div class="col text-center">
-                <h2>Compras</h2>
-            </div>
-        </div>
-        <div class="row mb-3 justify-content-center">
-            <div class="col-md-8 d-flex align-items-center justify-content-between">
-                <form action="{{ route('compra.index') }}" method="GET" class="w-100 d-flex gap-2">
-                    <div class="input-group">
-                        <input type="text" id="buscar" name="buscar" class="form-control" placeholder="Buscar compra..." value="{{ request('buscar') }}">
-                        <button type="submit" class="btn btn-primary">Pesquisar</button>
-                    </div>
-                </form>
-            </div>
-        </div>
+        @component('app.layouts._components.search-header', [
+            'titulo' => 'Compras',
+            'placeholder' => 'Buscar compra...',
+            'rota_pesquisa' => route('compra.index'),
+        ])
+        @endcomponent
         <div class="row justify-content-center">
             <div class="col-md-8">
             @if(session('success'))

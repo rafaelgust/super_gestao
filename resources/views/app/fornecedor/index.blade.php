@@ -3,23 +3,15 @@
 @section('titulo', 'Fornecedores')
 
 @section('conteudo')
-    <div class="container my-4">
-        <div class="row mb-4">
-            <div class="col text-center">
-                <h2>Fornecedores</h2>
-            </div>
-        </div>
-        <div class="row mb-3 justify-content-center">
-            <div class="col-md-8 d-flex align-items-center justify-content-between">
-                <form action="{{ route('fornecedor.index') }}" method="GET" class="w-100 d-flex gap-2">
-                    <div class="input-group">
-                        <input type="text" id="buscar" name="buscar" class="form-control" placeholder="Buscar fornecedor..." value="{{ request('buscar') }}">
-                        <button type="submit" class="btn btn-primary">Pesquisar</button>
-                    </div>
-                </form>
-                <a href="{{ route('fornecedor.create') }}" class="btn btn-success ms-2">Adicionar Fornecedor</a>
-            </div>
-        </div>
+    <div class="container">
+        @component('app.layouts._components.search-header', [
+            'titulo' => 'Fornecedores',
+            'placeholder' => 'Buscar fornecedor...',
+            'rota_pesquisa' => route('fornecedor.index'),
+            'rota_criar' => route('fornecedor.create'),
+            'texto_btn' => 'Adicionar Fornecedor'
+        ])
+        @endcomponent
         <div class="row justify-content-center">
             <div class="col-md-8">
             @if(session('success'))

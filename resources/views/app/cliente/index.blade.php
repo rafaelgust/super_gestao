@@ -3,23 +3,15 @@
 @section('titulo', 'Clientes')
 
 @section('conteudo')
-    <div class="container my-4">
-        <div class="row mb-4">
-            <div class="col text-center">
-                <h2>Clientes</h2>
-            </div>
-        </div>
-        <div class="row mb-3 justify-content-center">
-            <div class="col-md-8 d-flex align-items-center justify-content-between">
-                <form action="{{ route('cliente.index') }}" method="GET" class="w-100 d-flex gap-2">
-                    <div class="input-group">
-                        <input type="text" id="buscar" name="buscar" class="form-control" placeholder="Buscar cliente..." value="{{ request('buscar') }}">
-                        <button type="submit" class="btn btn-primary">Pesquisar</button>
-                    </div>
-                </form>
-                <a href="{{ route('cliente.create') }}" class="btn btn-success ms-2">Adicionar Cliente</a>
-            </div>
-        </div>
+    <div class="container">
+        @component('app.layouts._components.search-header', [
+            'titulo' => 'Clientes',
+            'placeholder' => 'Buscar cliente...',
+            'rota_pesquisa' => route('cliente.index'),
+            'rota_criar' => route('cliente.create'),
+            'texto_btn' => 'Adicionar Cliente'
+        ])
+        @endcomponent
         <div class="row justify-content-center">
             <div class="col-md-8">
             @if(session('success'))
