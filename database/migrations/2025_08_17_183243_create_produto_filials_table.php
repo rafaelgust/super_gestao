@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('produto_id');
             $table->unsignedBigInteger('filial_id');
-            $table->integer('estoque');
             $table->decimal('preco_venda', 10, 2);
             $table->integer('estoque_minimo');
             $table->integer('estoque_maximo');

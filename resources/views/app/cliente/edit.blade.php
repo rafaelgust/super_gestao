@@ -11,11 +11,11 @@
         </div>
         <div class="row justify-content-center">
             <div class="col-md-4">
-                <form method="post" action="{{ route('Cliente.update', $Cliente->id) }}">
+                <form method="post" action="{{ route('cliente.update', $cliente->id) }}">
                     @csrf
                     @method('PUT')
                     <div class="mb-3">
-                        <input type="text" name="nome" class="form-control @error('nome') is-invalid @enderror" placeholder="Nome do Cliente" value="{{ old('nome', $Cliente->nome) }}">
+                        <input type="text" name="nome" class="form-control @error('nome') is-invalid @enderror" placeholder="Nome do Cliente" value="{{ old('nome', $cliente->nome) }}">
                         @if ($errors->has('nome'))
                             <div class="error-form-contato">
                                 {{ $errors->first('nome') }}
@@ -23,7 +23,7 @@
                         @endif
                     </div>
                     <div class="mb-3">
-                        <input type="text" name="cpf" class="form-control @error('cpf') is-invalid @enderror" placeholder="cpf" value="{{ old('cpf', $Cliente->cpf) }}">
+                        <input type="text" name="cpf" class="form-control @error('cpf') is-invalid @enderror" placeholder="cpf" value="{{ old('cpf', $cliente->cpf) }}">
                         @if ($errors->has('cpf'))
                         <div class="error-form-contato">
                             {{ $errors->first('cpf') }}
@@ -31,7 +31,7 @@
                         @endif
                     </div>
                     <div class="mb-3">
-                        <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="E-mail" value="{{ old('email', $Cliente->email) }}">
+                        <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" placeholder="E-mail" value="{{ old('email', $cliente->email) }}">
                         @if ($errors->has('email'))
                         <div class="error-form-contato">
                             {{ $errors->first('email') }}
@@ -39,7 +39,7 @@
                         @endif
                     </div>
                     <div class="mb-3">
-                        <input type="text" name="telefone" class="form-control @error('telefone') is-invalid @enderror" placeholder="Telefone" value="{{ old('telefone', $Cliente->telefone) }}">
+                        <input type="text" name="telefone" class="form-control @error('telefone') is-invalid @enderror" placeholder="Telefone" value="{{ old('telefone', $cliente->telefone) }}">
                         @if ($errors->has('telefone'))
                             <div class="error-form-contato">
                                 {{ $errors->first('telefone') }}

@@ -8,7 +8,6 @@
         </div>
     </div>
 
-    <!-- Cards de Estatísticas Principais -->
     <div class="row mb-4">
         <div class="col-md-3 col-sm-6 mb-3">
             <div class="card text-white bg-primary">
@@ -16,7 +15,7 @@
                     <i class="fas fa-building"></i> Filiais
                 </div>
                 <div class="card-body">
-                    <h3 class="card-title">{{ $filiais ?? 0 }}</h3>
+                    <h3 class="card-title">{{ $quantidadeDeFiliais ?? 0 }}</h3>
                     <p class="card-text">Total de filiais cadastradas</p>
                 </div>
             </div>
@@ -27,7 +26,7 @@
                     <i class="fas fa-box"></i> Produtos
                 </div>
                 <div class="card-body">
-                    <h3 class="card-title">{{ $produtos ?? 0 }}</h3>
+                    <h3 class="card-title">{{ $quantidadeDeProdutos ?? 0 }}</h3>
                     <p class="card-text">Total de produtos cadastrados</p>
                 </div>
             </div>
@@ -38,7 +37,7 @@
                     <i class="fas fa-users"></i> Clientes
                 </div>
                 <div class="card-body">
-                    <h3 class="card-title">{{ $clientes ?? 0 }}</h3>
+                    <h3 class="card-title">{{ $quantidadeDeClientes ?? 0 }}</h3>
                     <p class="card-text">Total de clientes cadastrados</p>
                 </div>
             </div>
@@ -49,16 +48,14 @@
                     <i class="fas fa-truck"></i> Fornecedores
                 </div>
                 <div class="card-body">
-                    <h3 class="card-title">{{ $fornecedores ?? 0 }}</h3>
+                    <h3 class="card-title">{{ $quantidadeDeFornecedores ?? 0 }}</h3>
                     <p class="card-text">Total de fornecedores cadastrados</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Seção de Pedidos -->
     <div class="row">
-        <!-- Pedidos de Compra -->
         <div class="col-md-6 mb-4">
             <div class="card">
                 <div class="card-header bg-light">
@@ -70,26 +67,25 @@
                     <div class="row text-center">
                         <div class="col-4">
                             <div class="border-right">
-                                <h4 class="text-primary">{{ $pedidosCompra['criado'] ?? 0 }}</h4>
+                                <h4 class="text-primary">{{ $quantidadePedidosDeCompraComStatus['criado'] ?? 0 }}</h4>
                                 <small class="text-muted">Criado</small>
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="border-right">
-                                <h4 class="text-warning">{{ $pedidosCompra['aguardando'] ?? 0 }}</h4>
-                                <small class="text-muted">Aguardando</small>
+                                <h4 class="text-warning">{{ $quantidadePedidosDeCompraComStatus['em andamento'] ?? 0 }}</h4>
+                                <small class="text-muted">Em andamento</small>
                             </div>
                         </div>
                         <div class="col-4">
-                            <h4 class="text-success">{{ $pedidosCompra['entregue'] ?? 0 }}</h4>
-                            <small class="text-muted">Entregue</small>
+                            <h4 class="text-success">{{ $quantidadePedidosDeCompraComStatus['concluido'] ?? 0 }}</h4>
+                            <small class="text-muted">Concluído</small>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Pedidos de Venda -->
         <div class="col-md-6 mb-4">
             <div class="card">
                 <div class="card-header bg-light">
@@ -101,19 +97,19 @@
                     <div class="row text-center">
                         <div class="col-4">
                             <div class="border-right">
-                                <h4 class="text-primary">{{ $pedidosVenda['criado'] ?? 0 }}</h4>
+                                <h4 class="text-primary">{{ $quantidadePedidosDeVendaComStatus['criado'] ?? 0 }}</h4>
                                 <small class="text-muted">Criado</small>
                             </div>
                         </div>
                         <div class="col-4">
                             <div class="border-right">
-                                <h4 class="text-warning">{{ $pedidosVenda['aguardando'] ?? 0 }}</h4>
-                                <small class="text-muted">Aguardando</small>
+                                <h4 class="text-warning">{{ $quantidadePedidosDeVendaComStatus['em andamento'] ?? 0 }}</h4>
+                                <small class="text-muted">Em andamento</small>
                             </div>
                         </div>
                         <div class="col-4">
-                            <h4 class="text-success">{{ $pedidosVenda['entregue'] ?? 0 }}</h4>
-                            <small class="text-muted">Entregue</small>
+                            <h4 class="text-success">{{ $quantidadePedidosDeVendaComStatus['concluído'] ?? 0 }}</h4>
+                            <small class="text-muted">Concluído</small>
                         </div>
                     </div>
                 </div>
@@ -121,7 +117,6 @@
         </div>
     </div>
 
-    <!-- Gráfico de Compras vs Vendas -->
     <div class="row mb-4">
         <div class="col-12">
             <div class="card">
@@ -137,7 +132,6 @@
         </div>
     </div>
 
-    <!-- Container de Estoque -->
     <div class="row">
         <div class="col-12">
             <div class="card">
