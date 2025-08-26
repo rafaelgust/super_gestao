@@ -85,7 +85,7 @@
                                    title="Editar cliente">
                                     <i class="bi bi-pencil"></i>
                                 </a>
-                                <a href="/venda/create?clienteId=${data}" 
+                                <a href="/pedido/venda/criar/${data}" 
                                    class="btn btn-success btn-sm" 
                                    style="border-radius: 8px; background: linear-gradient(45deg, #10b981, #059669); border: none;"
                                    data-bs-toggle="tooltip" 

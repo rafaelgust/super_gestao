@@ -70,8 +70,6 @@ Route::middleware(['verified'])->group(function () {
         Route::get('/contato/lista', [ContatoController::class, 'lista'])
                 ->name('contato.lista');
 
-        Route::resource('fornecedor', FornecedorController::class);
-
         Route::get('/cliente', [ClienteController::class, 'index'])
                 ->name('cliente.index');
         Route::get('/cliente/lista', [ClienteController::class, 'lista'])
@@ -89,6 +87,25 @@ Route::middleware(['verified'])->group(function () {
         Route::get('/cliente/destroy/{id}', [ClienteController::class, 'destroy'])
                 ->name('cliente.destroy');
 
+      
+        Route::get('/fornecedor', [FornecedorController::class, 'index'])
+                ->name('fornecedor.index');
+        Route::get('/fornecedor/lista', [FornecedorController::class, 'lista'])
+                ->name('fornecedor.lista');
+        Route::get('/fornecedor/create', [FornecedorController::class, 'create'])
+                ->name('fornecedor.create');
+        Route::post('/fornecedor/store', [FornecedorController::class, 'store'])
+                ->name('fornecedor.store');
+        Route::get('/fornecedor/{id}', [FornecedorController::class, 'show'])
+                ->name('fornecedor.show');
+        Route::get('/fornecedor/edit/{id}', [FornecedorController::class, 'edit'])
+                ->name('fornecedor.edit');
+        Route::get('/fornecedor/update/{id}', [FornecedorController::class, 'update'])
+                ->name('fornecedor.update');
+        Route::get('/fornecedor/destroy/{id}', [FornecedorController::class, 'destroy'])
+                ->name('fornecedor.destroy');
+
+      
         Route::resource('filial', FilialController::class);
         Route::resource('produto', ProdutoController::class);
 });

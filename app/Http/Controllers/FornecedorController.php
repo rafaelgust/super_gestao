@@ -15,27 +15,18 @@ class FornecedorController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    
+    public function lista()
     {
-        $buscar = $request->input('buscar');
+        $fornecedoresDB = new Fornecedor();
+        $fornecedores = $fornecedoresDB->select();
+        return response()->json($fornecedores);
+    }
 
-        if ($buscar != null) {
-            $fornecedores = Fornecedor::when($buscar, function ($query) use ($buscar) {
-                $query->where(function ($q) use ($buscar) {
-                    $q->where('nome', 'like', "%$buscar%")
-                    ->orWhere('cnpj', 'like', "%$buscar%");
-                });
-            })->paginate(10);
 
-            return view("app.fornecedor.index", [
-                'fornecedores' => $fornecedores,
-                'request' => $request->all()
-            ]);
-        }
-
-        $fornecedores = Fornecedor::paginate(10);
-
-        return view('app.fornecedor.index', compact('fornecedores'));
+    public function index()
+    {
+        return view('app.fornecedor.index');
     }
 
     /**
