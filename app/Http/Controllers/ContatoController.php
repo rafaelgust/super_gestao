@@ -7,10 +7,17 @@ use Illuminate\Http\Request;
 
 class ContatoController extends Controller
 {
+
+    public function index()
+    {
+        return view('app.contato.index');
+    }
+
     public function lista()
     {
-        $contatos = SiteContato::all();
-        return view('app.contato.index', compact('contatos'));
+        $siteContato = new SiteContato();
+        $contatos = $siteContato->select();
+        return response()->json($contatos);
     }
 
     public function store(Request $request)

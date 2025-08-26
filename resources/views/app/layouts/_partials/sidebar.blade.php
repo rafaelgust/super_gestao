@@ -14,7 +14,7 @@
                     'text' => 'Dashboard',
                 ],
                 [
-                    'link' => route('contato.lista'),
+                    'link' => route('contato.index'),
                     'icon' => 'bi bi-envelope',
                     'text' => 'Contatos',
                 ],
@@ -122,7 +122,7 @@
 
     /* Chrome, Safari, Edge */
     #sidebar #completed::-webkit-scrollbar {
-    display: none;
+        display: none;
     }
 
     #sidebar #completed.sidebar-expanded {

@@ -65,9 +65,10 @@ Route::middleware(['verified'])->group(function () {
         Route::delete('/pedido/venda/{vendaId}', [PedidoVendaController::class, 'destroy'])
                 ->name('venda.destroy');
 
+        Route::get('/contato/index', [ContatoController::class, 'index'])
+                ->name('contato.index');
         Route::get('/contato/lista', [ContatoController::class, 'lista'])
                 ->name('contato.lista');
-
 
         Route::resource('fornecedor', FornecedorController::class);
         Route::resource('cliente', ClienteController::class);
