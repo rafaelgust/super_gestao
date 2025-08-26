@@ -19,6 +19,7 @@ function carregarTabela({ url, tbodySelector, colunas }) {
     fetch(url)
         .then(res => res.json())
         .then(data => {
+            console.log(data);
             Swal.close();
             if (data.length === 0) {
                 Swal.fire({

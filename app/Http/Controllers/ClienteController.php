@@ -14,27 +14,16 @@ class ClienteController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
-        $buscar = $request->input('buscar');
+        return view('app.cliente.index');
+    }
 
-        if ($buscar != null) {
-            $clientes = Cliente::when($buscar, function ($query) use ($buscar) {
-                $query->where(function ($q) use ($buscar) {
-                    $q->where('nome', 'like', "%$buscar%")
-                    ->orWhere('cpf', 'like', "%$buscar%");
-                });
-            })->paginate(10);
-
-            return view("app.cliente.index", [
-                'clientes' => $clientes,
-                'request' => $request->all()
-            ]);
-        }
-
-        $clientes = Cliente::paginate(10);
-
-        return view('app.cliente.index', compact('clientes'));
+    public function lista()
+    {
+        $clientesDB = new Cliente();
+        $clientes = $clientesDB->select();
+        return response()->json($clientes);
     }
 
     /**

@@ -71,7 +71,24 @@ Route::middleware(['verified'])->group(function () {
                 ->name('contato.lista');
 
         Route::resource('fornecedor', FornecedorController::class);
-        Route::resource('cliente', ClienteController::class);
+
+        Route::get('/cliente', [ClienteController::class, 'index'])
+                ->name('cliente.index');
+        Route::get('/cliente/lista', [ClienteController::class, 'lista'])
+                ->name('cliente.lista');
+        Route::get('/cliente/create', [ClienteController::class, 'create'])
+                ->name('cliente.create');
+        Route::post('/cliente/store', [ClienteController::class, 'store'])
+                ->name('cliente.store');
+        Route::get('/cliente/{id}', [ClienteController::class, 'show'])
+                ->name('cliente.show');
+        Route::get('/cliente/edit/{id}', [ClienteController::class, 'edit'])
+                ->name('cliente.edit');
+        Route::get('/cliente/update/{id}', [ClienteController::class, 'update'])
+                ->name('cliente.update');
+        Route::get('/cliente/destroy/{id}', [ClienteController::class, 'destroy'])
+                ->name('cliente.destroy');
+
         Route::resource('filial', FilialController::class);
         Route::resource('produto', ProdutoController::class);
 });
