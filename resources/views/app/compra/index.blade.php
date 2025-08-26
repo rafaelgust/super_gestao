@@ -37,7 +37,7 @@
                 <div class="col-12">
                     <div class="card border-0 shadow-sm" style="border-radius: 16px; overflow: hidden;">
                         <div class="table-responsive">
-                            <table class="table table-hover align-middle mb-0">
+                            <table id="compra-tabela" class="table table-hover align-middle mb-0">
                                 <thead>
                                     <tr>
                                         <th class="py-3 px-4 border-0">
@@ -131,4 +131,9 @@
                 </div>
             </div>
         @endempty
+<script>
+    $(document).ready(function(){
+        $('#compra-tabela').DataTable();
+    });
+</script>
 @endsection
