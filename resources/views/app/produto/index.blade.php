@@ -1,6 +1,16 @@
 @extends('app.layouts.app')
 
 @section('titulo', 'Produtos')
+<style>
+    .product-card {
+        border-radius: 16px; overflow: hidden; transition: all 0.3s ease;max-width: 280px;
+    }
+
+    .product-card:hover {
+        transform: scale(1.05);
+        box-shadow: 2px 5px 10px 4px rgb(0 0 0 / 6%);
+    }
+</style>
 
 @section('conteudo')
     <div class="container">
@@ -36,18 +46,18 @@
             </div>
         @else
         <div class="row justify-content-center mt-4">
-            <div class="col-12">
+            <div class="col-8">
                 <div class="row g-4">
                     @foreach ($produtos as $produto)
                         <div class="col-lg-6 col-xl-4">
-                            <div class="card border-0 shadow-sm h-100" style="border-radius: 16px; overflow: hidden; transition: all 0.3s ease;">
+                            <div class="card border-0 shadow-sm h-100 product-card">
                                 <!-- Imagem do produto -->
                                 <div class="card-img-top position-relative" style="height: 200px; background: linear-gradient(135deg, #f8fafc, #e2e8f0);">
                                     @if($produto->imagem)
                                         <img src="{{ asset('storage/' . $produto->imagem) }}" 
                                              alt="{{ $produto->nome }}" 
-                                             class="w-100 h-100" 
-                                             style="object-fit: cover;">
+                                             class="w-100 h-100 p-2" 
+                                             style="object-fit: contain;">
                                     @else
                                         <div class="d-flex align-items-center justify-content-center h-100">
                                             <i class="bi bi-image display-4 text-muted"></i>
