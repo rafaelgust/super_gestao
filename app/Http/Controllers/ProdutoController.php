@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Filial;
 use App\Models\Produto;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -38,24 +39,10 @@ class ProdutoController extends Controller
 
     public function index(Request $request)
     {
-        $buscar = $request->input('buscar');
-
-        if ($buscar != null) {
-            $produtos = Produto::when($buscar, function ($query) use ($buscar) {
-                $query->where(function ($q) use ($buscar) {
-                    $q->where('nome', 'like', "%$buscar%");
-                });
-            })->paginate(10);
-
-            return view("app.produto.index", [
-                'produtos' => $produtos,
-                'request' => $request->all()
-            ]);
-        }
-
-        $produtos = Produto::paginate(10);
-
-        return view('app.produto.index', compact('produtos'));
+      
+        $produtos = Produto::all();
+        $filiais = Filial::all();
+        return view('app.produto.index', compact('produtos', 'filiais'));
     }
 
     /**
