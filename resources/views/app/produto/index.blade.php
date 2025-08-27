@@ -167,7 +167,7 @@ $(document).ready(function() {
             <div class="col-md-2">
                 <div class="card h-100 shadow-sm product-card mx-auto">
                     <img src="/storage/${row.imagem}" class="card-img-top p-3" style="object-fit:contain; height:220px;">
-                    <div class="card-body d-flex flex-column">
+                    <div class="card-body d-flex flex-column" style="height: 280px;">
                         <h5 class="card-title text-truncate" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">${row.nome}</h5>
                         <p class="card-text text-muted small flex-grow-1" style="display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;">${row.descricao ?? 'Sem descrição'}</p>
                         <div class="d-flex justify-content-between align-items-center mt-3">
@@ -185,7 +185,6 @@ $(document).ready(function() {
     }
 
     DataCardTable(produtos, renderCard, "lista-card-produtos");
-
 });
 </script>
 @endsection
