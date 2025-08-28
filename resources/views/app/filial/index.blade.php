@@ -56,7 +56,7 @@
                             <a href="/filial/${data}" class="btn btn-outline-info btn-sm" style="border-radius: 8px;" data-bs-toggle="tooltip" title="Visualizar filial">
                                 <i class="bi bi-eye"></i>
                             </a>
-                            <a href="/filial/${data}/edit" class="btn btn-outline-warning btn-sm" style="border-radius: 8px;" data-bs-toggle="tooltip" title="Editar filial">
+                            <a href="/filial/edit/${data}" class="btn btn-outline-warning btn-sm" style="border-radius: 8px;" data-bs-toggle="tooltip" title="Editar filial">
                                 <i class="bi bi-pencil"></i>
                             </a>
                         </div>
