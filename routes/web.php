@@ -106,6 +106,23 @@ Route::middleware(['verified'])->group(function () {
                 ->name('fornecedor.destroy');
 
       
-        Route::resource('filial', FilialController::class);
+        Route::get('/filial', [FilialController::class, 'index'])
+                ->name('filial.index');
+        Route::get('/filial/lista', [FilialController::class, 'lista'])
+                ->name('filial.lista');
+        Route::get('/filial/create', [FilialController::class, 'create'])
+                ->name('filial.create');
+        Route::post('/filial', [FilialController::class, 'store'])
+                ->name('filial.store');
+        Route::get('/filial/{id}', [FilialController::class, 'show'])
+                ->name('filial.show');
+        Route::get('/filial/edit/{id}', [FilialController::class, 'edit'])
+                ->name('filial.edit');
+        Route::put('/filial/{id}', [FilialController::class, 'update'])
+                ->name('filial.update');
+        Route::delete('/filial/{id}', [FilialController::class, 'destroy'])
+                ->name('filial.destroy');
+        
+
         Route::resource('produto', ProdutoController::class);
 });

@@ -12,30 +12,20 @@ class FilialController extends Controller
     {
         $this->middleware('auth');
     }
+    
+    public function lista()
+    {
+        $filial = new Filial();
+        $filiais = $filial->select();
+        return response()->json($filiais);
+    }
+
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
-        $buscar = $request->input('buscar');
-
-        if ($buscar != null) {
-            $filiais = Filial::when($buscar, function ($query) use ($buscar) {
-                $query->where(function ($q) use ($buscar) {
-                    $q->where('nome', 'like', "%$buscar%");
-                });
-            })->with('produtos')
-            ->paginate(10);
-
-            return view("app.filial.index", [
-                'filiais' => $filiais,
-                'request' => $request->all()
-            ]);
-        }
-
-        $filiais = Filial::paginate(10);
-
-        return view('app.filial.index', compact('filiais'));
+        return view('app.filial.index');
     }
 
     /**

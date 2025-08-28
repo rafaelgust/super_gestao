@@ -20,4 +20,8 @@ class Filial extends Model
     {
         return $this->hasMany(ProdutoFilial::class, 'filial_id', 'id');
     }
+
+    public function select(){
+    return $this->selectRaw('id, nome')->get();
+    }
 }
