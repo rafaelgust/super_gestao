@@ -292,14 +292,13 @@
 }
 
 .hero-badge {
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
+    background: rgb(255 193 7 / 15%);
     padding: 0.75rem 1.5rem;
     border-radius: 50px;
     font-weight: 600;
     font-size: 0.9rem;
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
+    border: 1px solid rgb(255 193 7);
     display: inline-block;
 }
 
