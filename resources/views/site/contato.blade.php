@@ -7,7 +7,7 @@
 <!-- Hero Section -->
 <section class="contact-hero py-5 bg-gradient text-dark">
     <div class="container">
-        <div class="row justify-content-center text-center">
+        <div class="row">
             <div class="col-lg-8">
                 <span class="hero-badge mb-4 text-dark">
                     <i class="bi bi-envelope-fill me-2 "></i>Entre em Contato
