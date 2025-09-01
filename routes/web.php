@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoriaController;
 use App\Http\Controllers\ClienteController;
 use App\Http\Controllers\ContatoController;
 use App\Http\Controllers\FilialController;
@@ -125,4 +126,5 @@ Route::middleware(['verified'])->group(function () {
         
 
         Route::resource('produto', ProdutoController::class);
+        Route::resource('categoria', CategoriaController::class);
 });
