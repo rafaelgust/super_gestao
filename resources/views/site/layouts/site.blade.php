@@ -27,11 +27,13 @@
                 font-family: 'Inter', sans-serif;
                 line-height: 1.6;
                 color: #333;
+                overflow-x: hidden;
             }
             
             /* Smooth scrolling */
             html {
                 scroll-behavior: smooth;
+                overflow-x: hidden;
             }
             
             /* Custom scrollbar */
@@ -136,6 +138,24 @@
             .card:hover {
                 transform: translateY(-5px);
                 box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            }
+
+            /* Responsive fixes for small devices */
+            @media (max-width: 575.98px) {
+                .container, .container-fluid {
+                    padding-left: 10px;
+                    padding-right: 10px;
+                }
+                
+                .row {
+                    margin-left: -5px;
+                    margin-right: -5px;
+                }
+                
+                .row > * {
+                    padding-left: 5px;
+                    padding-right: 5px;
+                }
             }
         </style>
     </head>
