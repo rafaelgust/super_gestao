@@ -20,17 +20,17 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" href="{{ route('site.index') }}">
+                    <a class="nav-link {{ request()->routeIs('site.index') ? 'active' : '' }}" href="{{ route('site.index') }}" style="margin-right: 10px">
                         <i class="bi bi-house-fill me-1"></i>Início
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('site.sobre-nos') }}">
+                    <a class="nav-link {{ request()->routeIs('site.sobre-nos') ? 'active' : '' }}" href="{{ route('site.sobre-nos') }}" style="margin-right: 10px">
                         <i class="bi bi-people-fill me-1"></i>Sobre Nós
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('site.contato') }}">
+                    <a class="nav-link {{ request()->routeIs('site.contato') ? 'active' : '' }}" href="{{ route('site.contato') }}" style="margin-right: 10px">
                         <i class="bi bi-envelope-fill me-1"></i>Contato
                     </a>
                 </li>
@@ -58,8 +58,8 @@
                         <a class="btn btn-outline-warning btn-sm" href="{{ route('login') }}">
                             <i class="bi bi-box-arrow-in-right me-1"></i>Entrar
                         </a>
-                        <a class="btn btn-warning btn-sm" href="{{ route('register') }}">
-                            <i class="bi bi-person-plus me-1"></i>Registrar
+                        <a href="#orcamento" class="btn btn-warning btn-sm ms-2">
+                            <i class="bi bi-calculator me-1"></i>Orçamento Grátis
                         </a>
                     </div>
                 @endguest
@@ -77,6 +77,9 @@
                                 <a class="dropdown-item" href="{{ route('home') }}">
                                     <i class="bi bi-speedometer2 me-2"></i>Painel Administrativo
                                 </a>
+                                <a class="dropdown-item" href="{{ route('register') }}">
+                                    <i class="bi bi-person-plus me-2"></i>Cadastrar Usuário
+                                </a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
@@ -89,10 +92,6 @@
                         </li>
                     </ul>
                 @endauth
-                
-                <a href="#orcamento" class="btn btn-warning btn-sm ms-2">
-                    <i class="bi bi-calculator me-1"></i>Orçamento Grátis
-                </a>
             </div>
         </div>
     </div>

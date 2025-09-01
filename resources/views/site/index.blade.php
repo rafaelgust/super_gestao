@@ -158,7 +158,7 @@
                     @php
                         $vantagens = [
                             ['icon' => 'bi-award-fill', 'color' => 'warning', 'titulo' => 'Experiência Comprovada', 'desc' => '15+ anos no mercado de energia solar'],
-                            ['icon' => 'bi-shield-check-fill', 'color' => 'success', 'titulo' => 'Garantia Total', 'desc' => 'Garantia de até 25 anos nos equipamentos'],
+                            ['icon' => 'bi-shield-fill-check', 'color' => 'success', 'titulo' => 'Garantia Total', 'desc' => 'Garantia de até 25 anos nos equipamentos'],
                             ['icon' => 'bi-people-fill', 'color' => 'primary', 'titulo' => 'Equipe Certificada', 'desc' => 'Profissionais qualificados e certificados'],
                             ['icon' => 'bi-headset', 'color' => 'info', 'titulo' => 'Suporte Completo', 'desc' => 'Atendimento e suporte técnico especializado'],
                         ];
@@ -226,7 +226,7 @@
                         </div>
                         <div class="info-item">
                             <div class="info-icon bg-primary">
-                                <i class="bi bi-shield-check-fill"></i>
+                                <i class="bi bi-shield-fill-check"></i>
                             </div>
                             <div class="info-content">
                                 <h5>Garantia Total</h5>
@@ -375,7 +375,7 @@
 .brand-highlight::after {
     content: '';
     position: absolute;
-    bottom: -10px;
+    bottom: 5px;
     left: 0;
     width: 100%;
     height: 4px;
