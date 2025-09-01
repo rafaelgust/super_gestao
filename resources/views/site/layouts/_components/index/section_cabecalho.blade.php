@@ -21,6 +21,13 @@
 .hero-content {
     position: relative;
     z-index: 2;
+    padding-top: 40px;
+}
+
+@media (min-width: 1350px) {
+    .hero-content {
+        padding-top: 0px;
+    }
 }
 
 .hero-badge {

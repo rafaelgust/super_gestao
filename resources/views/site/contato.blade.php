@@ -1,6 +1,6 @@
 @extends('site.layouts.site')
 
-@section('titulo', ''.$site->nome.' - Contato')
+@section('titulo', ' - Contato')
 
 @section('conteudo')
 
