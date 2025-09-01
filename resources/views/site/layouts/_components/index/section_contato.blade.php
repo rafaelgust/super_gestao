@@ -110,40 +110,20 @@
         <div class="row align-items-center g-5">
             <div class="col-lg-6">
                 <div class="contact-info">
-                    <h2 class="section-title mb-4">Solicite seu Orçamento Gratuito</h2>
-                    <p class="section-subtitle mb-4">
-                        Faça uma simulação personalizada e descubra quanto você pode economizar 
-                        com energia solar. Nossa equipe vai até você para avaliar seu projeto.
-                    </p>
-                    
+                    <h2 class="section-title mb-4">{{ $componentes->where('tipo', 'index_section_contato')->first()->titulo ?? '' }}</h2>
+                    <p class="section-subtitle mb-4">{{ $componentes->where('tipo', 'index_section_contato')->first()->valor ?? '' }}</p>
                     <div class="info-items">
+                        @foreach ($componentes->where('tipo', 'index_section_contato_itens')->sortBy('ordem') as $item)
                         <div class="info-item">
-                            <div class="info-icon bg-warning">
-                                <i class="bi bi-clock-fill"></i>
+                            <div class="info-icon" style="background-color: {{ $item['cor'] ?? '#ffc107' }};">
+                                <i class="{{ $item['icone'] }}"></i>
                             </div>
                             <div class="info-content">
-                                <h5>Resposta em 24h</h5>
-                                <p>Retornamos seu contato em até 24 horas</p>
+                                <h5>{{ $item['titulo'] }}</h5>
+                                <p>{{ $item['valor'] }}</p>
                             </div>
                         </div>
-                        <div class="info-item">
-                            <div class="info-icon bg-success">
-                                <i class="bi bi-geo-alt-fill"></i>
-                            </div>
-                            <div class="info-content">
-                                <h5>Visita Técnica Gratuita</h5>
-                                <p>Avaliação completa no local sem custo</p>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <div class="info-icon bg-primary">
-                                <i class="bi bi-shield-fill-check"></i>
-                            </div>
-                            <div class="info-content">
-                                <h5>Garantia Total</h5>
-                                <p>Equipamentos com garantia de até 25 anos</p>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -159,19 +139,27 @@
                     
                     <div class="contact-methods mt-4">
                         <h6 class="mb-3">Ou fale conosco diretamente:</h6>
-                        <div class="d-flex gap-3 flex-wrap">
-                            <a href="tel:+5511999998888" class="contact-btn whatsapp">
-                                <i class="bi bi-whatsapp"></i>
-                                <span>WhatsApp</span>
-                            </a>
-                            <a href="tel:+5511999998888" class="contact-btn phone">
-                                <i class="bi bi-telephone-fill"></i>
-                                <span>Telefone</span>
-                            </a>
-                            <a href="mailto:contato@rs-energia.com.br" class="contact-btn email">
-                                <i class="bi bi-envelope-fill"></i>
-                                <span>E-mail</span>
-                            </a>
+                        <div class="d-flex gap-3 flex-wrap justify-content-center">
+                            @if (session('site_informacoes')['whatsapp_contato'])
+                                <a href="tel:{{ session('site_informacoes')['whatsapp_contato'] }}" class="contact-btn whatsapp">
+                                    <i class="bi bi-whatsapp"></i>
+                                    <span>WhatsApp</span>
+                                </a>
+                            @endif
+
+                            @if (session('site_informacoes')['telefone_contato'])
+                                <a href="tel:{{ session('site_informacoes')['telefone_contato'] }}" class="contact-btn phone">
+                                    <i class="bi bi-telephone-fill"></i>
+                                    <span>Telefone</span>
+                                </a>
+                            @endif
+
+                            @if (session('site_informacoes')['email_contato'])
+                                <a href="mailto:{{ session('site_informacoes')['email_contato'] }}" class="contact-btn email">
+                                    <i class="bi bi-envelope-fill"></i>
+                                    <span>E-mail</span>
+                                </a>
+                            @endif
                         </div>
                     </div>
                 </div>

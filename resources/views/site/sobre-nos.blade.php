@@ -1,6 +1,6 @@
 @extends('site.layouts.site')
 
-@section('titulo', 'Sobre Nós')
+@section('titulo', ' - Sobre Nós')
 
 @section('conteudo')
 

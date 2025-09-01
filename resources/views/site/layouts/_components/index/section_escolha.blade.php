@@ -80,27 +80,18 @@
         <div class="row align-items-center g-5">
             <div class="col-lg-6">
                 <div class="content-block">
-                    <h2 class="block-title">Por que Escolher a R&S?</h2>
-                    <p class="block-subtitle">Somos referência em energia solar com soluções personalizadas para cada cliente</p>
-                    
-                    @php
-                        $vantagens = [
-                            ['icon' => 'bi-award-fill', 'color' => 'warning', 'titulo' => 'Experiência Comprovada', 'desc' => '15+ anos no mercado de energia solar'],
-                            ['icon' => 'bi-shield-fill-check', 'color' => 'success', 'titulo' => 'Garantia Total', 'desc' => 'Garantia de até 25 anos nos equipamentos'],
-                            ['icon' => 'bi-people-fill', 'color' => 'primary', 'titulo' => 'Equipe Certificada', 'desc' => 'Profissionais qualificados e certificados'],
-                            ['icon' => 'bi-headset', 'color' => 'info', 'titulo' => 'Suporte Completo', 'desc' => 'Atendimento e suporte técnico especializado'],
-                        ];
-                    @endphp
+                    <h2 class="block-title">{{ $componentes->where('tipo', 'index_section_escolha')->first()->titulo ?? '' }}</h2>
+                    <p class="block-subtitle">{{ $componentes->where('tipo', 'index_section_escolha')->first()->valor ?? '' }}</p>
                     
                     <div class="advantages-list">
-                        @foreach($vantagens as $v)
+                        @foreach($componentes->where('tipo', 'index_section_escolha_itens') as $vantagem)
                         <div class="advantage-item">
-                            <div class="advantage-icon bg-{{ $v['color'] }}">
-                                <i class="bi {{ $v['icon'] }}"></i>
+                            <div class="advantage-icon" style="background-color: {{ $vantagem['cor'] ?? '#ffc107' }};">
+                                <i class="{{ $vantagem['icone'] }}"></i>
                             </div>
                             <div class="advantage-content">
-                                <h5>{{ $v['titulo'] }}</h5>
-                                <p>{{ $v['desc'] }}</p>
+                                <h5>{{ $vantagem['titulo'] }}</h5>
+                                <p>{{ $vantagem['valor'] }}</p>
                             </div>
                         </div>
                         @endforeach
@@ -110,11 +101,11 @@
             <div class="col-lg-6">
                 <div class="image-gallery">
                     <div class="gallery-main">
-                        <img src="{{ asset('img/solar-service-1.jpg') }}" alt="Instalação Solar" class="img-fluid rounded-4">
+                        <img src="{{ asset($componentes->where('tipo', 'index_section_escolha_imagem_1')->first()->valor ?? '') }}" alt="{{ $componentes->where('tipo', 'index_section_escolha_imagem_1')->first()->titulo ?? '' }}" class="img-fluid rounded-4">
                     </div>
                     <div class="gallery-secondary">
-                        <img src="{{ asset('img/solar-service-2.jpg') }}" alt="Placas Solares" class="img-fluid rounded-4">
-                        <img src="{{ asset('img/solar-service-3.jpg') }}" alt="Equipe Técnica" class="img-fluid rounded-4">
+                        <img src="{{ asset($componentes->where('tipo', 'index_section_escolha_imagem_2')->first()->valor ?? '') }}" alt="{{ $componentes->where('tipo', 'index_section_escolha_imagem_2')->first()->titulo ?? '' }}" class="img-fluid rounded-4">
+                        <img src="{{ asset($componentes->where('tipo', 'index_section_escolha_imagem_3')->first()->valor ?? '') }}" alt="{{ $componentes->where('tipo', 'index_section_escolha_imagem_3')->first()->titulo ?? '' }}" class="img-fluid rounded-4">
                     </div>
                 </div>
             </div>

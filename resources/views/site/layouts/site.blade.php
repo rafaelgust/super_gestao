@@ -1,11 +1,15 @@
+@php
+    $site_informacoes = session('site_informacoes');
+@endphp
+
 <!DOCTYPE html>
 <html lang="pt-br">
     <head>
-        <title>R&S Energia Solar - @yield('titulo')</title>
+        <title>{{ $site_informacoes['nome'] ?? '' }} @yield('titulo')</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="R&S Energia Solar - Especialistas em placas solares e aquecedores solares. Economize até 95% na sua conta de energia com nossos sistemas fotovoltaicos.">
-        <meta name="keywords" content="energia solar, placas solares, aquecedores solares, instalação solar, economia energia">
+        <meta name="description" content="{{ $site_informacoes['descricao'] ?? '' }}">
+        <meta name="keywords" content="{{ $site_informacoes['keywords'] ?? '' }}">
         
         <!-- Favicon -->
         <link rel="icon" type="image/x-icon" href="{{ asset('img/favicon.ico') }}">
@@ -165,7 +169,7 @@
         <div class="page-loader">
             <div class="loader-content">
                 <div class="loader-icon"></div>
-                <div class="loader-text">R&S Energia Solar</div>
+                <div class="loader-text">{{ $site_informacoes['nome'] }}</div>
             </div>
         </div>
         

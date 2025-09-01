@@ -1,26 +1,38 @@
 @extends('site.layouts.site')
 
-@section('titulo', 'Energia Solar e Aquecedores')
+@section('titulo', ' - Página Inicial')
 
 @section('conteudo')
 
 <!-- Hero Section -->
-@include('site.layouts._components.index.section_cabecalho')
+@include('site.layouts._components.index.section_cabecalho', ['componentes' => $componentes->filter(function($componente) {
+    return str_contains(strtolower($componente->tipo), 'cabecalho');
+})])
 
 <!-- Services Section -->
-@include('site.layouts._components.index.section_servicos')
+@include('site.layouts._components.index.section_servicos', ['componentes' => $componentes->filter(function($componente) {
+    return str_contains(strtolower($componente->tipo), 'servico');
+})])
 
 <!-- Why Choose Us Section -->
-@include('site.layouts._components.index.section_escolha')
+@include('site.layouts._components.index.section_escolha', ['componentes' => $componentes->filter(function($componente) {
+    return str_contains(strtolower($componente->tipo), 'escolha');
+})])
 
 <!-- Contact Section -->
-@include('site.layouts._components.index.section_contato', ['motivo_contatos' => $motivo_contatos])
+@include('site.layouts._components.index.section_contato', ['motivo_contatos' => $motivo_contatos, 'componentes' => $componentes->filter(function($componente) {
+    return str_contains(strtolower($componente->tipo), 'contato');
+})])
 
 <!-- Benefits Section -->
-@include('site.layouts._components.index.section_beneficios')
+@include('site.layouts._components.index.section_beneficios', ['componentes' => $componentes->filter(function($componente) {
+    return str_contains(strtolower($componente->tipo), 'beneficio');
+})])
 
 <!-- CTA Section -->
-@include('site.layouts._components.index.section_cta')
+@include('site.layouts._components.index.section_cta', ['componentes' => $componentes->filter(function($componente) {
+    return str_contains(strtolower($componente->tipo), 'cta');
+})])
 
 <style>
 /* Animations */

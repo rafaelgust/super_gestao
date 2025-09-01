@@ -91,56 +91,27 @@
 <section id="servicos" class="services-section py-5">
     <div class="container">
         <div class="section-header text-center">
-            <h2 class="section-title pt-5">Nossos Serviços</h2>
-            <p class="section-subtitle">Soluções completas em energia solar para sua casa ou empresa</p>
+            <h2 class="section-title pt-5">{{ $componentes->where('tipo', 'index_section_servico')->first()->titulo ?? '' }}</h2>
+            <p class="section-subtitle">{{ $componentes->where('tipo', 'index_section_servico')->first()->valor ?? '' }}</p>
         </div>
         <div class="row g-4">
+            @foreach ($componentes->where('tipo', 'index_section_servico_itens') as $servico)
             @php
-                $servicos = [
-                    [
-                        'icon' => 'bi-sun-fill', 
-                        'color' => 'warning', 
-                        'titulo' => 'Placas Solares', 
-                        'desc' => 'Sistemas fotovoltaicos de alta eficiência para reduzir sua conta de energia',
-                        'features' => ['Instalação profissional', 'Garantia de 25 anos', 'Monitoramento remoto']
-                    ],
-                    [
-                        'icon' => 'bi-thermometer-sun', 
-                        'color' => 'primary', 
-                        'titulo' => 'Aquecedores Solares', 
-                        'desc' => 'Aquecimento sustentável de água com tecnologia solar avançada',
-                        'features' => ['Economia até 80%', 'Baixa manutenção', 'Ecologicamente correto']
-                    ],
-                    [
-                        'icon' => 'bi-tools', 
-                        'color' => 'success', 
-                        'titulo' => 'Instalação', 
-                        'desc' => 'Instalação profissional com equipe certificada e experiente',
-                        'features' => ['Equipe certificada', 'Projeto personalizado', 'Suporte completo']
-                    ],
-                    [
-                        'icon' => 'bi-gear-fill', 
-                        'color' => 'info', 
-                        'titulo' => 'Manutenção', 
-                        'desc' => 'Manutenção preventiva e corretiva para máxima eficiência',
-                        'features' => ['Manutenção preventiva', 'Suporte técnico', 'Peças originais']
-                    ],
-                ];
+                $itens = explode(',', $servico->valor);
             @endphp
-            @foreach($servicos as $index => $s)
             <div class="col-lg-6 col-xl-3">
-                <div class="service-card" data-aos="fade-up" data-aos-delay="{{ $index * 100 }}">
-                    <div class="service-icon bg-{{ $s['color'] }}">
-                        <i class="bi {{ $s['icon'] }}"></i>
+                <div class="service-card" data-aos="fade-up" data-aos-delay="{{ $loop->index * 100 }}">
+                    <div class="service-icon" style="background-color: {{ $servico->cor ?? '#ffc107' }};">
+                        <i class="bi {{ $servico->icone ?? '' }}"></i>
                     </div>
-                    <h4 class="service-title">{{ $s['titulo'] }}</h4>
-                    <p class="service-description">{{ $s['desc'] }}</p>
+                    <h4 class="service-title">{{ $servico->titulo ?? '' }}</h4>
+                    <p class="service-description">{{ $servico->descricao ?? '' }}</p>
                     <ul class="service-features">
-                        @foreach($s['features'] as $feature)
-                        <li><i class="bi bi-check-circle-fill text-{{ $s['color'] }}"></i> {{ $feature }}</li>
+                        @foreach($itens as $feature)
+                        <li><i class="bi bi-check-circle-fill" style="color: {{ $servico->cor ?? '#ffc107' }};"></i> {{ $feature }}</li>
                         @endforeach
                     </ul>
-                    <a href="#orcamento" class="service-link">Saiba mais <i class="bi bi-arrow-right"></i></a>
+                    <a href="{{ $servico->url ?? '#' }}" class="service-link">Saiba mais <i class="bi bi-arrow-right"></i></a>
                 </div>
             </div>
             @endforeach

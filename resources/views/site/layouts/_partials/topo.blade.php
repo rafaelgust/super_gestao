@@ -1,3 +1,7 @@
+<?php 
+$site_informacoes = session('site_informacoes');
+?>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <div class="container">
         
@@ -7,8 +11,8 @@
                     <i class="bi bi-sun-fill"></i>
                 </div>
                 <div class="brand-text">
-                    <span class="brand-name">R&S</span>
-                    <span class="brand-subtitle">Energia Solar</span>
+                    <span class="brand-name">{{ $site_informacoes['nome'] ?? '' }}</span>
+                    <span class="brand-subtitle">{{ $site_informacoes['descricao_area'] ?? '' }}</span>
                 </div>
             </div>
         </a>
@@ -50,7 +54,7 @@
             <div class="d-flex align-items-center">
                 <div class="navbar-contact me-3 d-none d-lg-block">
                     <small class="text-muted">Ligue agora:</small><br>
-                    <strong class="text-warning">(11) 9999-8888</strong>
+                    <strong class="text-warning">{{ $site_informacoes['telefone_contato'] ?? '' }}</strong>
                 </div>
                 
                 @guest

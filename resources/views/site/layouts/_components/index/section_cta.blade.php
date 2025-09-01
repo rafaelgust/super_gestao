@@ -34,16 +34,15 @@
     <div class="container text-center">
         <div class="row justify-content-center">
             <div class="col-lg-8">
-                <h2 class="cta-title mb-4">Pronto para Economizar com Energia Solar?</h2>
+                <h2 class="cta-title mb-4">{{ $componentes->where('tipo', 'index_section_cta')->first()->titulo ?? '' }}</h2>
                 <p class="cta-subtitle mb-4">
-                    Junte-se a mais de 500 clientes satisfeitos que já estão economizando com energia solar. 
-                    Solicite seu orçamento gratuito agora mesmo!
+                    {{ $componentes->where('tipo', 'index_section_cta')->first()->valor ?? '' }}
                 </p>
                 <div class="cta-actions">
                     <a href="#orcamento" class="btn btn-dark btn-lg me-3">
                         <i class="bi bi-calculator me-2"></i>Calcular Economia
                     </a>
-                    <a href="tel:+5511999998888" class="btn btn-outline-dark btn-lg">
+                    <a href="tel:+55{{ session('site_informacoes')['telefone_contato'] ?? '' }}" class="btn btn-outline-dark btn-lg">
                         <i class="bi bi-telephone-fill me-2"></i>Ligar Agora
                     </a>
                 </div>

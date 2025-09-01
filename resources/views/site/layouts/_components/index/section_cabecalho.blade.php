@@ -167,7 +167,6 @@
     animation: bounce 2s infinite;
 }
 </style>
-
 <section class="hero-section position-relative overflow-hidden">
     <div class="hero-bg"></div>
     <div class="container-fluid h-100">
@@ -176,39 +175,27 @@
                 <div class="hero-content">
                     <div class="badge-container mb-4">
                         <span class="hero-badge">
-                            <i class="bi bi-sun-fill me-2"></i>
-                            Energia Solar & Sustentabilidade
+                            <i class="{{ $componentes->where('tipo', 'index_section_cabecalho_hero_badge')->first()->icone ?? '' }}"></i>
+                            {{ $componentes->where('tipo', 'index_section_cabecalho_hero_badge')->first()->titulo ?? '' }}
                         </span>
                     </div>
                     <h1 class="hero-title">
-                        <span class="brand-highlight">R&S</span><br>
-                        <span class="hero-subtitle">Energia Solar</span>
+                        <span class="brand-highlight">{{ session('site_informacoes')['nome'] ?? '' }}</span><br>
+                        <span class="hero-subtitle">{{ session('site_informacoes')['descricao_area'] ?? '' }}</span>
                     </h1>
                     <p class="hero-description">
-                        Transforme sua casa ou empresa com energia limpa e econômica. 
-                        Especialistas em <strong>placas solares</strong> e <strong>aquecedores solares</strong> 
-                        com mais de 15 anos de experiência.
+                        {!! session('site_informacoes')['descricao_html'] ?? '' !!}
                     </p>
                     <div class="hero-stats mb-4">
                         <div class="row g-3">
-                            <div class="col-4">
-                                <div class="stat-item">
-                                    <div class="stat-number">15+</div>
-                                    <div class="stat-label">Anos</div>
+                            @foreach ($componentes->where('tipo', 'index_section_cabecalho_hero_itens')->sortBy('ordem') as $estatistica)
+                                <div class="col-4">
+                                    <div class="stat-item">
+                                        <div class="stat-number">{{ $estatistica->valor ?? '' }}</div>
+                                        <div class="stat-label">{{ $estatistica->titulo ?? '' }}</div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="stat-item">
-                                    <div class="stat-number">500+</div>
-                                    <div class="stat-label">Projetos</div>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="stat-item">
-                                    <div class="stat-number">95%</div>
-                                    <div class="stat-label">Economia</div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                     <div class="hero-actions">
@@ -224,14 +211,14 @@
             <div class="col-lg-6 col-xl-6">
                 <div class="hero-image">
                     <div class="image-container">
-                        <img src="{{ asset('img/hero-solar-new.jpg') }}" alt="Instalação de Energia Solar" class="img-fluid">
+                        <img src="{{ asset($componentes->where('tipo', 'index_section_cabecalho_hero_imagem')->first()->valor ?? '') }}" alt="{{ $componentes->where('tipo', 'index_section_cabecalho_hero_imagem')->first()->titulo ?? '' }}" class="img-fluid">
                         <div class="floating-card">
                             <div class="card-icon">
-                                <i class="bi bi-lightning-charge-fill"></i>
+                                <i class="{{ $componentes->where('tipo', 'index_section_cabecalho_hero_item_top')->first()->icone ?? '' }}"></i>
                             </div>
                             <div class="card-content">
-                                <div class="card-number">95%</div>
-                                <div class="card-text">Economia na Conta</div>
+                                <div class="card-number">{{ $componentes->where('tipo', 'index_section_cabecalho_hero_item_top')->first()->valor ?? '' }}</div>
+                                <div class="card-text">{{ $componentes->where('tipo', 'index_section_cabecalho_hero_item_top')->first()->titulo ?? '' }}</div>
                             </div>
                         </div>
                     </div>
