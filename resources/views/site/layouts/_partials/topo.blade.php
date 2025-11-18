@@ -38,17 +38,6 @@ $site_informacoes = session('site_informacoes');
                         <i class="bi bi-envelope-fill me-1"></i>Contato
                     </a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="servicesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <i class="bi bi-gear-fill me-1"></i>Serviços
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="servicesDropdown">
-                        <li><a class="dropdown-item" href="#servicos"><i class="bi bi-sun me-2"></i>Placas Solares</a></li>
-                        <li><a class="dropdown-item" href="#servicos"><i class="bi bi-thermometer-sun me-2"></i>Aquecedores Solares</a></li>
-                        <li><a class="dropdown-item" href="#servicos"><i class="bi bi-tools me-2"></i>Instalação</a></li>
-                        <li><a class="dropdown-item" href="#servicos"><i class="bi bi-gear me-2"></i>Manutenção</a></li>
-                    </ul>
-                </li>
             </ul>
             
             <div class="d-flex align-items-center">
@@ -61,9 +50,6 @@ $site_informacoes = session('site_informacoes');
                     <div class="d-flex gap-2">
                         <a class="btn btn-outline-warning btn-sm" href="{{ route('login') }}">
                             <i class="bi bi-box-arrow-in-right me-1"></i>Entrar
-                        </a>
-                        <a href="#orcamento" class="btn btn-warning btn-sm ms-2">
-                            <i class="bi bi-calculator me-1"></i>Orçamento Grátis
                         </a>
                     </div>
                 @endguest

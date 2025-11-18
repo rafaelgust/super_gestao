@@ -12,10 +12,10 @@
                 <span class="hero-badge mb-4 text-dark">
                     <i class="bi bi-envelope-fill me-2 "></i>Entre em Contato
                 </span>
-                <h1 class="hero-title mb-4">Solicite seu Orçamento Gratuito</h1>
+                <h1 class="hero-title mb-4">Solicite seu Orçamento</h1>
                 <p class="hero-description text-dark">
-                    Nossa equipe está pronta para ajudar você a economizar com energia solar. 
-                    Faça uma simulação personalizada e descubra o potencial de economia da sua casa ou empresa.
+                    Nossa equipe está pronta para ajudar você a economizar com aquecedor solar de água.
+                    Faça uma simulação personalizada e descubra o potencial de economia para sua residência ou empresa.
                 </p>
             </div>
         </div>
@@ -32,43 +32,6 @@
                         <h2 class="form-title">Preencha o formulário</h2>
                         <p class="form-subtitle">Nossa equipe entrará em contato em até 24 horas</p>
                     </div>
-                    
-                    <!-- Statistics Cards -->
-                    <div class="row g-3 mb-5">
-                        <div class="col-md-4">
-                            <div class="stat-card">
-                                <div class="stat-icon bg-warning">
-                                    <i class="bi bi-clock-fill"></i>
-                                </div>
-                                <div class="stat-content">
-                                    <div class="stat-number">24h</div>
-                                    <div class="stat-label">Resposta Rápida</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="stat-card">
-                                <div class="stat-icon bg-success">
-                                    <i class="bi bi-geo-alt-fill"></i>
-                                </div>
-                                <div class="stat-content">
-                                    <div class="stat-number">Grátis</div>
-                                    <div class="stat-label">Visita Técnica</div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="stat-card">
-                                <div class="stat-icon bg-primary">
-                                    <i class="bi bi-shield-check-fill"></i>
-                                </div>
-                                <div class="stat-content">
-                                    <div class="stat-number">25 anos</div>
-                                    <div class="stat-label">Garantia</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
                     <!-- Form -->
                     <div class="form-container">
@@ -82,12 +45,13 @@
                             <i class="bi bi-lightbulb-fill"></i>
                         </div>
                         <div class="alert-content">
-                            <h5>Por que escolher energia solar?</h5>
+                            <h5>Por que escolher aquecedor solar de água?</h5>
                             <ul class="benefits-list">
-                                <li>Economize até 95% na conta de energia</li>
-                                <li>Valorize seu imóvel em até 20%</li>
+                                <li>Economize até 70% no consumo de energia para aquecimento de água</li>
+                                <li>Valorize seu imóvel em até 10%</li>
                                 <li>Contribua para um planeta mais sustentável</li>
-                                <li>Sistema se paga em 3-7 anos</li>
+                                <li>Retorno do investimento em 2-4 anos</li>
+                                <li>Água quente disponível mesmo em dias nublados</li>
                             </ul>
                         </div>
                     </div>
@@ -150,71 +114,6 @@
                         </div>
                     </div>
 
-                    <!-- Emergency Contact -->
-                    <div class="emergency-contact">
-                        <div class="emergency-header">
-                            <i class="bi bi-telephone-fill me-2"></i>
-                            <h5>Atendimento de Emergência</h5>
-                        </div>
-                        <p>Para manutenção de sistemas instalados</p>
-                        <a href="tel:+5511999998888" class="btn btn-warning w-100">
-                            <i class="bi bi-telephone-fill me-2"></i>Emergência 24h
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Location Section -->
-<section class="location-section py-5 bg-light">
-    <div class="container">
-        <div class="row g-5">
-            <div class="col-lg-6">
-                <div class="location-info">
-                    <h2 class="section-title mb-4">Nossa Localização</h2>
-                    <div class="location-details">
-                        <div class="location-item">
-                            <div class="location-icon">
-                                <i class="bi bi-geo-alt-fill"></i>
-                            </div>
-                            <div class="location-content">
-                                <h5>Endereço</h5>
-                                <p>Rua das Placas Solares, 123<br>Bairro Sustentável<br>São Paulo - SP, 01234-567</p>
-                            </div>
-                        </div>
-                        <div class="location-item">
-                            <div class="location-icon">
-                                <i class="bi bi-clock-fill"></i>
-                            </div>
-                            <div class="location-content">
-                                <h5>Horário Comercial</h5>
-                                <p>Segunda a Sexta: 08:00 - 18:00<br>Sábado: 08:00 - 12:00<br>Domingo: Fechado</p>
-                            </div>
-                        </div>
-                        <div class="location-item">
-                            <div class="location-icon">
-                                <i class="bi bi-car-front-fill"></i>
-                            </div>
-                            <div class="location-content">
-                                <h5>Estacionamento</h5>
-                                <p>Estacionamento gratuito disponível<br>Fácil acesso para clientes</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="map-container">
-                    <div class="map-placeholder">
-                        <i class="bi bi-geo-alt-fill"></i>
-                        <h4>Mapa Interativo</h4>
-                        <p>Clique para abrir no Google Maps</p>
-                        <a href="https://maps.google.com" class="btn btn-warning">
-                            <i class="bi bi-map me-2"></i>Ver no Google Maps
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>
@@ -226,7 +125,7 @@
     <div class="container">
         <div class="text-center mb-5">
             <h2 class="section-title">Perguntas Frequentes</h2>
-            <p class="section-subtitle">Tire suas dúvidas sobre energia solar</p>
+            <p class="section-subtitle">Tire suas dúvidas sobre aquecedor solar de água</p>
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-8">
@@ -234,20 +133,20 @@
                     @php
                         $faqs = [
                             [
-                                'question' => 'Quanto tempo leva para instalar um sistema solar?',
-                                'answer' => 'A instalação residencial típica leva de 1 a 3 dias, dependendo do tamanho do sistema. Para projetos comerciais, o prazo pode variar de 1 a 2 semanas.'
+                                'question' => 'Quanto tempo leva para instalar um aquecedor solar?',
+                                'answer' => 'A instalação residencial normalmente leva de 1 a 2 dias, dependendo do tamanho do sistema e da estrutura do telhado.'
                             ],
                             [
-                                'question' => 'Qual é a economia real com energia solar?',
-                                'answer' => 'A economia pode chegar a 95% da conta de energia elétrica. O valor exato depende do consumo atual, incidência solar e dimensionamento do sistema.'
+                                'question' => 'Qual é a economia real com aquecedor solar?',
+                                'answer' => 'A economia pode chegar a 70% do gasto com energia elétrica ou gás para aquecimento de água. O valor exato depende do consumo e do dimensionamento do sistema.'
                             ],
                             [
-                                'question' => 'O sistema funciona em dias nublados?',
-                                'answer' => 'Sim! Os painéis solares geram energia mesmo em dias nublados, embora com menor eficiência. O sistema é dimensionado considerando essas variações climáticas.'
+                                'question' => 'O sistema funciona em dias nublados ou frios?',
+                                'answer' => 'Sim! O sistema é projetado para fornecer água quente mesmo em dias nublados, podendo contar com apoio elétrico ou a gás em períodos prolongados sem sol.'
                             ],
                             [
-                                'question' => 'Qual é a vida útil dos painéis solares?',
-                                'answer' => 'Os painéis solares têm vida útil superior a 25 anos, com garantia de desempenho. O inversor tem vida útil de 10-15 anos e pode ser substituído quando necessário.'
+                                'question' => 'Qual é a vida útil dos coletores solares?',
+                                'answer' => 'Os coletores solares têm vida útil superior a 15 anos, com garantia de desempenho. O reservatório térmico também possui longa durabilidade.'
                             ]
                         ];
                     @endphp
