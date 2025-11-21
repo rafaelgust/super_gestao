@@ -115,6 +115,71 @@
                 </div>
             </div>
             @endforeach
+
+            <!-- New Services -->
+            <div class="col-lg-6 col-xl-3">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+                    <div class="service-icon" style="background-color: #ffc107;">
+                        <i class="bi bi-lightning-charge-fill"></i>
+                    </div>
+                    <h4 class="service-title">Instalação e Manutenção Elétrica</h4>
+                    <p class="service-description">Serviços completos de instalação e manutenção elétrica residencial e comercial.</p>
+                    <ul class="service-features">
+                        <li><i class="bi bi-check-circle-fill" style="color: #ffc107;"></i> Projetos Elétricos</li>
+                        <li><i class="bi bi-check-circle-fill" style="color: #ffc107;"></i> Manutenção Preventiva</li>
+                        <li><i class="bi bi-check-circle-fill" style="color: #ffc107;"></i> Reparos e Instalações</li>
+                    </ul>
+                    <a href="{{ route('site.contato') }}" class="service-link">Saiba mais <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-xl-3">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="500">
+                    <div class="service-icon" style="background-color: #0dcaf0;">
+                        <i class="bi bi-droplet-fill"></i>
+                    </div>
+                    <h4 class="service-title">Instalações Hidráulicas e Gás</h4>
+                    <p class="service-description">Soluções profissionais para redes hidráulicas, sanitárias e de gás.</p>
+                    <ul class="service-features">
+                        <li><i class="bi bi-check-circle-fill" style="color: #0dcaf0;"></i> Redes de Água e Esgoto</li>
+                        <li><i class="bi bi-check-circle-fill" style="color: #0dcaf0;"></i> Instalação de Gás</li>
+                        <li><i class="bi bi-check-circle-fill" style="color: #0dcaf0;"></i> Manutenção e Reparos</li>
+                    </ul>
+                    <a href="{{ route('site.contato') }}" class="service-link">Saiba mais <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-xl-3">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+                    <div class="service-icon" style="background-color: #fd7e14;">
+                        <i class="bi bi-shop"></i>
+                    </div>
+                    <h4 class="service-title">Material Elétrico</h4>
+                    <p class="service-description">Comércio varejista de materiais elétricos de alta qualidade.</p>
+                    <ul class="service-features">
+                        <li><i class="bi bi-check-circle-fill" style="color: #fd7e14;"></i> Fios e Cabos</li>
+                        <li><i class="bi bi-check-circle-fill" style="color: #fd7e14;"></i> Disjuntores e Quadros</li>
+                        <li><i class="bi bi-check-circle-fill" style="color: #fd7e14;"></i> Iluminação LED</li>
+                    </ul>
+                    <a href="{{ route('site.contato') }}" class="service-link">Saiba mais <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-6 col-xl-3">
+                <div class="service-card" data-aos="fade-up" data-aos-delay="700">
+                    <div class="service-icon" style="background-color: #20c997;">
+                        <i class="bi bi-box-seam-fill"></i>
+                    </div>
+                    <h4 class="service-title">Materiais Hidráulicos</h4>
+                    <p class="service-description">Tudo o que você precisa para sua instalação hidráulica.</p>
+                    <ul class="service-features">
+                        <li><i class="bi bi-check-circle-fill" style="color: #20c997;"></i> Tubos e Conexões</li>
+                        <li><i class="bi bi-check-circle-fill" style="color: #20c997;"></i> Torneiras e Registros</li>
+                        <li><i class="bi bi-check-circle-fill" style="color: #20c997;"></i> Caixas d'Água</li>
+                    </ul>
+                    <a href="{{ route('site.contato') }}" class="service-link">Saiba mais <i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
         </div>
     </div>
 </section>

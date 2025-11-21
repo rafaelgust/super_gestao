@@ -14,11 +14,11 @@
                         <i class="bi bi-sun-fill me-2"></i>Quem Somos
                     </span>
                     <h1 class="hero-title mb-4 text-dark">
-                        Sobre a <span class="text-warning">R&S Aquecedores Solares</span>
+                        Sobre a <span class="text-warning">J.F R&S Aquecedores Solares</span>
                     </h1>
                     <p class="hero-description mb-4 text-dark">
-                        Há mais de 15 anos transformando a forma como as pessoas utilizam água quente, 
-                        oferecendo soluções sustentáveis e econômicas em aquecimento solar.
+                        Há mais de 15 anos transformando a forma como as pessoas utilizam água quente e energia, 
+                        oferecendo soluções completas em aquecimento solar, instalações elétricas, hidráulicas e gás.
                     </p>
                     <div class="hero-stats">
                         <div class="row g-3">
@@ -46,7 +46,7 @@
             </div>
             <div class="col-lg-6">
                 <div class="hero-image" data-aos="fade-left">
-                    <img src="{{ asset('img/about-hero.jpg') }}" alt="Equipe R&S Aquecedores Solares" class="img-fluid rounded-4">
+                    <img src="{{ asset('img/about-hero.jpg') }}" alt="Equipe J.F R&S Aquecedores Solares" class="img-fluid rounded-4">
                 </div>
             </div>
         </div>
@@ -64,7 +64,7 @@
                     </div>
                     <h3 class="mission-title">Nossa Missão</h3>
                     <p class="mission-description">
-                        Popularizar o uso de aquecedores solares no Brasil, proporcionando conforto, economia e sustentabilidade para residências e empresas.
+                        Oferecer excelência em aquecimento solar, instalações elétricas e hidráulicas, proporcionando conforto, segurança e economia para residências e empresas.
                     </p>
                 </div>
             </div>
@@ -75,7 +75,7 @@
                     </div>
                     <h3 class="mission-title">Nossa Visão</h3>
                     <p class="mission-description">
-                        Ser referência nacional em aquecimento solar, reconhecida pela qualidade, inovação e atendimento personalizado.
+                        Ser referência nacional em soluções integradas de engenharia, reconhecida pela qualidade, inovação e atendimento personalizado em todas as nossas áreas de atuação.
                     </p>
                 </div>
             </div>

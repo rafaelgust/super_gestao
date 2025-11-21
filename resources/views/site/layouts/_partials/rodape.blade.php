@@ -6,7 +6,7 @@
                 <div class="rounded-circle bg-warning bg-gradient d-flex align-items-center justify-content-center mb-4 mx-auto" style="width: 100px; height: 100px;">
                     <i class="bi bi-sun-fill text-white" style="font-size: 2.5rem;"></i>
                 </div>
-                <p class="text-center fw-bold text-warning fs-5">R&S Energia Solar</p>
+                <p class="text-center fw-bold text-warning fs-5">J.F R&S Energia Solar</p>
                 <p class="text-muted text-center">Transformando luz solar em economia para você.</p>
             </div>
 
@@ -48,7 +48,7 @@
 
     <div class="text-center p-3 bg-black">
         © {{ date('Y') }} Copyright:
-        <a class="text-warning fw-semibold text-decoration-none" href="/">R&S Energia Solar</a>
+        <a class="text-warning fw-semibold text-decoration-none" href="/">J.F R&S Energia Solar</a>
         - Todos os direitos reservados
     </div>
 </footer>
