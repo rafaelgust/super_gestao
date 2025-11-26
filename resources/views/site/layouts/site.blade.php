@@ -161,6 +161,25 @@
                     padding-right: 5px;
                 }
             }
+
+            /* Large screens (Ultrawide/29"+) */
+            @media (min-width: 1600px) {
+                .container {
+                    max-width: 1400px;
+                }
+                
+                body {
+                    font-size: 1.1rem;
+                }
+                
+                h1 { font-size: 3.5rem; }
+                h2 { font-size: 2.8rem; }
+                h3 { font-size: 2rem; }
+                
+                .hero-description {
+                    max-width: 800px;
+                }
+            }
         </style>
     </head>
     

@@ -6,16 +6,16 @@
                 <div class="rounded-circle bg-warning bg-gradient d-flex align-items-center justify-content-center mb-4 mx-auto" style="width: 100px; height: 100px;">
                     <i class="bi bi-sun-fill text-white" style="font-size: 2.5rem;"></i>
                 </div>
-                <p class="text-center fw-bold text-warning fs-5">J.F R&S Energia Solar</p>
-                <p class="text-muted text-center">Transformando luz solar em economia para você.</p>
+                <p class="text-center fw-bold text-warning fs-5 company-name-footer">J.F R&S Aquecedores e Manutenção</p>
+                <p class="text-muted text-center">Soluções em aquecimento e manutenção.</p>
             </div>
 
             <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                 <h5 class="text-uppercase mb-4 text-warning">Serviços</h5>
                 <ul class="list-unstyled">
-                    <li class="mb-2"><a href="{{ route('site.sobre-nos') }}" class="text-light text-decoration-none hover-link">Placas Solares</a></li>
                     <li class="mb-2"><a href="{{ route('site.sobre-nos') }}" class="text-light text-decoration-none hover-link">Aquecedores Solares</a></li>
-                    <li class="mb-2"><a href="{{ route('site.contato') }}" class="text-light text-decoration-none hover-link">Instalação</a></li>
+                    <li class="mb-2"><a href="{{ route('site.contato') }}" class="text-light text-decoration-none hover-link">Manutenção Hidráulica</a></li>
+                    <li class="mb-2"><a href="{{ route('site.contato') }}" class="text-light text-decoration-none hover-link">Manutenção Elétrica</a></li>
                     <li class="mb-2"><a href="{{ route('site.contato') }}" class="text-light text-decoration-none hover-link">Manutenção</a></li>
                 </ul>
             </div>
@@ -23,7 +23,7 @@
             <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
                 <h5 class="text-uppercase mb-4 text-warning">Contato</h5>
                 <ul class="list-unstyled">
-                    <li class="mb-2"><p><i class="bi bi-geo-alt-fill pe-2 text-warning"></i>São Paulo, SP, Brasil</p></li>
+                    <li class="mb-2"><p><i class="bi bi-geo-alt-fill pe-2 text-warning"></i>Turmalina, MG</p></li>
                     <li class="mb-2"><p><i class="bi bi-telephone-fill pe-2 text-warning"></i>(11) 9999-8888</p></li>
                     <li class="mb-2"><p><i class="bi bi-envelope-fill pe-2 text-warning"></i>contato@rs-energia.com.br</p></li>
                     <li class="mb-2"><p><i class="bi bi-clock-fill pe-2 text-warning"></i>Seg a Sex: 8h às 18h</p></li>
@@ -48,7 +48,7 @@
 
     <div class="text-center p-3 bg-black">
         © {{ date('Y') }} Copyright:
-        <a class="text-warning fw-semibold text-decoration-none" href="/">J.F R&S Energia Solar</a>
+        <a class="text-warning fw-semibold text-decoration-none" href="/">J.F R&S Aquecedores e Manutenção</a>
         - Todos os direitos reservados
     </div>
 </footer>
@@ -65,5 +65,14 @@
     display: flex;
     align-items: center;
     justify-content: center;
+}
+.company-name-footer {
+    word-wrap: break-word;
+    hyphens: auto;
+}
+@media (min-width: 1600px) {
+    .company-name-footer {
+        font-size: 1.4rem !important;
+    }
 }
 </style>

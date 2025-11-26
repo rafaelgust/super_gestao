@@ -14,8 +14,8 @@
                 </span>
                 <h1 class="hero-title mb-4">Solicite seu Orçamento</h1>
                 <p class="hero-description text-dark">
-                    Nossa equipe está pronta para ajudar você a economizar com aquecedor solar de água.
-                    Faça uma simulação personalizada e descubra o potencial de economia para sua residência ou empresa.
+                    Nossa equipe está pronta para ajudar você com aquecedores solares e manutenção hidráulica e elétrica.
+                    Faça uma simulação personalizada e descubra o potencial de economia e segurança para sua residência ou empresa.
                 </p>
             </div>
         </div>
@@ -45,9 +45,9 @@
                             <i class="bi bi-lightbulb-fill"></i>
                         </div>
                         <div class="alert-content">
-                            <h5>Por que escolher aquecedor solar de água?</h5>
+                            <h5>Por que escolher nossos serviços?</h5>
                             <ul class="benefits-list">
-                                <li>Economize até 70% no consumo de energia para aquecimento de água</li>
+                                <li>Economia e segurança para sua residência</li>
                                 <li>Valorize seu imóvel em até 10%</li>
                                 <li>Contribua para um planeta mais sustentável</li>
                                 <li>Retorno do investimento em 2-4 anos</li>
@@ -125,7 +125,7 @@
     <div class="container">
         <div class="text-center mb-5">
             <h2 class="section-title">Perguntas Frequentes</h2>
-            <p class="section-subtitle">Tire suas dúvidas sobre aquecedor solar de água</p>
+            <p class="section-subtitle">Tire suas dúvidas sobre nossos serviços</p>
         </div>
         <div class="row justify-content-center">
             <div class="col-lg-8">
@@ -198,6 +198,7 @@
     font-size: 1.2rem;
     line-height: 1.6;
     color: rgba(255, 255, 255, 0.9);
+    max-width: 600px; /* Default max-width for readability */
 }
 
 /* Contact Form Section */
