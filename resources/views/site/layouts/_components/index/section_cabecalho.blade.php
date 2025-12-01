@@ -42,10 +42,22 @@
 }
 
 .hero-title {
-    font-size: 4rem;
+    font-size: 2.5rem;
     font-weight: 800;
     line-height: 1.1;
     margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+    .hero-title {
+        font-size: 3rem;
+    }
+}
+
+@media (min-width: 992px) {
+    .hero-title {
+        font-size: 4rem;
+    }
 }
 
 .brand-highlight {
@@ -70,10 +82,16 @@
 }
 
 .hero-description {
-    font-size: 1.2rem;
+    font-size: 1rem;
     line-height: 1.6;
     margin-bottom: 2rem;
     color: rgba(255, 255, 255, 0.9);
+}
+
+@media (min-width: 992px) {
+    .hero-description {
+        font-size: 1.2rem;
+    }
 }
 
 .hero-stats {
@@ -121,8 +139,23 @@
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-    margin-bottom: 20px
+    margin-bottom: 20px;
+    max-width: 600px; /* Limit max width to prevent overflow on large screens */
+    margin-left: auto;
+    margin-right: auto;
 }
+
+@media (min-width: 992px) {
+    .image-container {
+        margin-right: 0; /* Reset margin on desktop */
+    }
+}
+
+@media (min-width: 1600px) {
+    .image-container {
+        max-width: 700px; /* Allow slightly larger on very large screens but still limited */
+    }
+
 
 .floating-card {
     position: absolute;
